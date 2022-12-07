@@ -16,6 +16,7 @@ class PackageModel extends Model
 	protected $protectFields        = true;
 	protected $allowedFields        = [
 		'name',
+		'img',
 		'is_featured'
 	];
 

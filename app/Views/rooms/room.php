@@ -54,8 +54,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="rooms-form">
-
+                    <form method="post" action="<?php echo base_url('room/addRoom'); ?>" enctype="multipart/form-data">
                         <div class="or-seperator"><b></b></div>
                         <div class="row">
                             <div class="col-md-12">

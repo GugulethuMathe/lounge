@@ -91,7 +91,7 @@
             </div>
         </div>
     </section>
-    <section class="elementor-section elementor-top-section elementor-element elementor-element-e5531ae elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="e5531ae" data-element_type="section">
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-e5531ae elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="e5531ae"  id="about" data-element_type="section">
         <div class="elementor-container elementor-column-gap-no">
             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6cabc11" data-id="6cabc11" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -138,7 +138,7 @@
             </div>
         </div>
     </section>
-    <section class="elementor-section elementor-top-section elementor-element elementor-element-9acdeca elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="9acdeca" data-element_type="section">
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-9acdeca elementor-section-full_width elementor-section-height-default elementor-section-height-default" id="services" data-id="9acdeca" data-element_type="section">
         <div class="elementor-container elementor-column-gap-no">
             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ee5dc68" data-id="ee5dc68" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -158,7 +158,7 @@
                                             <div class="single-facility animate-box" data-animate-effect="fadeInUp">
                                                 <span class="flaticon-world"></span>
                                                 <h5>Pick Up &amp; Drop</h5>
-                                                <p>We’ll pick up from anywhere, while you comfy on your ride, mus nellentesque habitant.</p>
+                                                <p>We’ll pick you up from anywhere, while you comfy on your ride, mus nellentesque habitant.</p>
                                                 <div class="facility-shape">
                                                     <span class="flaticon-world"></span>
                                                 </div>
@@ -224,7 +224,7 @@
             </div>
         </div>
     </section>
-    <section class="elementor-section elementor-top-section elementor-element elementor-element-8b364e8 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8b364e8" data-element_type="section">
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-8b364e8 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8b364e8"  data-element_type="section">
         <div class="elementor-container elementor-column-gap-no">
             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-319b36c" data-id="319b36c" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -237,83 +237,45 @@
                                         <div class="col-md-12">
                                             <br>
                                             <div class="section-title text-center"><span>Our Packages</span></div>
-                                            <div class="section-subtitle"><span>You can also customise a package
-                                                    by adding extra products and services </span></div>
+                                            <div class="section-subtitle"><span>Below are some of our popular package popular packages select one now! </span></div>
                                             <br>
                                             <hr>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="owl-carousel owl-theme">
-                                                <div class="item">
-                                                    <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/1-4.jpg" alt="">
-                                                        <div class="date">
-                                                            <a href="index-22.htm?p=8"> <span>Buy Now</span></a>
+                                        <?php
+                                        $db = \Config\Database::connect();
+                                        $query   = $db->query('SELECT * FROM packages LIMIT 6');
+                                        $results = $query->getResult();
+                                        foreach ($results as $pack) {
+                                        ?>
+                                            <div class="col-md-3">
+                                                <article class="aa-properties-item">
+                                                    <a type="button" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>" class="aa-properties-item-img">
+                                                        <img width="270" height="120" src="<?php echo base_url()?><?php echo $pack->img; ?>" alt="">
+                                                    </a>
+                                                    <div class="aa-tag for-sale bg-success p-3">
+                                                        <h3><span style="color: #fff;"> Package Name:
+                                                                <a type="button" style="" class="btn text-warning btn-outline-warning" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>">
+                                                                    <?php echo $pack->name; ?>
+                                                                </a>
+                                                            </span></h3>
+                                                    </div>
+                                                    <div class="aa-properties-item-content">
+                                                        <div class="aa-properties-info">
+                                                            <span></span>
+                                                        </div>
+                                                        <div class="aa-properties-about">
+                                                            <p class="card-description">
+                                                            </p>
+                                                        </div>
+                                                        <div class="aa-properties-detial">
+
                                                         </div>
                                                     </div>
-                                                    <div class="con">
-                                                        <span class="category">Description </span>
-                                                        <h5><a href="index-22.htm?p=8">View Package 1</a></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/2-5.jpg" alt="">
-                                                        <div class="date">
-                                                            <a href="index-28.htm?p=16"> <span>Buy Now</span> </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="con">
-                                                        <span class="category">Description</span>
-                                                        <h5><a href="index-28.htm?p=16">View Package 2</a></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/3-5.jpg" alt="">
-                                                        <div class="date">
-                                                            <a href="index-29.htm?p=20"> <span>Buy Now</span> </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="con">
-                                                        <span class="category">Description</span>
-                                                        <h5><a href="index-29.htm?p=20">View Package 3</a></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/4-2.jpg" alt="">
-                                                        <div class="date">
-                                                            <a href="index-30.htm?p=23"> <span>Buy Now</span> </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="con">
-                                                        <span class="category">Description</span>
-                                                        <h5><a href="index-30.htm?p=23">View Package 4</a></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/6-1.jpg" alt="">
-                                                        <div class="date">
-                                                            <a href="index-31.htm?p=27"> <span>Buy Now</span> </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="con">
-                                                        <span class="category">Description</span>
-                                                        <h5><a href="index-31.htm?p=27">View Package 5</a></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/5-2.jpg" alt="">
-                                                        <div class="date">
-                                                            <a href="index-32.htm?p=30"> <span>Buy Now</span> </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="con">
-                                                        <span class="category">Description</span>
-                                                        <h5><a href="index-32.htm?p=30">View Package 6</a></h5>
-                                                    </div>
-                                                </div>
+                                                </article>
                                             </div>
-                                        </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </section>
@@ -650,7 +612,7 @@
             </div>
         </div>
     </section>
-    <section class="elementor-section elementor-top-section elementor-element elementor-element-fb25961 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="fb25961" data-element_type="section">
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-fb25961 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="fb25961" id="contact" data-element_type="section">
         <div class="elementor-container elementor-column-gap-no">
             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9394148" data-id="9394148" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -679,7 +641,15 @@
                                                 </div>
                                                 <div class="text">
                                                     <p>Email Info</p>
-                                                    <a href="mailto:info@izikodelounge.co.za">info@izikodelounge.co.za</a>
+                                                    <a href="mailto:thulani@izikodelounge.co.za">thulani@izikodelounge.co.za</a>
+                                                </div>
+                                            </div>
+                                            <div class="reservations mb-30">
+                                                <div class="icon">
+                                                    <span class="flaticon-envelope"></span>
+                                                </div>
+                                                <div class="text">
+                                                    <a href="mailto:nomzamo@izikodelounge.co.za">nomzamo@izikodelounge.co.za</a>
                                                 </div>
                                             </div>
                                             <div class="reservations mb-30">
@@ -688,7 +658,9 @@
                                                 </div>
                                                 <div class="text">
                                                     <p>Address</p>
-                                                    3 unicorn, c/o Berg & van Alphen street <br />Midtown. Rustenburg
+                                                    Zikode Private Game Reserve <br />Portion 11, Kraalhoek Farm 269 JQ,
+                                                    <br>
+                                                    Rusternburg, North West
                                                     <br>
                                                     South Africa
                                                 </div>
@@ -747,29 +719,7 @@ Message *</textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Map Section -->
-                                    <div class="row">
-                                        <div class="mapouter">
-                                            <div class="gmap_canvas"><iframe width="1080" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%203%20unicorn%20street%20Midtown,%20Rustenburg%20South%20Africa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br>
-                                                <style>
-                                                    .mapouter {
-                                                        position: relative;
-                                                        text-align: right;
-                                                        height: 500px;
-                                                        width: 1080px;
-                                                    }
-                                                </style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
-                                                <style>
-                                                    .gmap_canvas {
-                                                        overflow: hidden;
-                                                        background: none !important;
-                                                        height: 500px;
-                                                        width: 1080px;
-                                                    }
-                                                </style>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="mapouter"><div class="gmap_canvas"><iframe width="1080" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%20Kraalhoek%20Farm%20269%20JQ,%20Rustenburg,%20North%20West,%20South%20Africa&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:1080px;}</style><a href="https://www.embedgooglemap.net">how to add map to website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:1080px;}</style></div></div>
                                 </div>
                             </section>
                         </div>

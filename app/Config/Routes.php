@@ -45,6 +45,9 @@ $routes->get('/products', 'Product::index');
 $routes->get('/fetch-products', 'Product::readProducts');
 $routes->get('index-dark', 'Home::show_index_dark');
 
+//
+$routes->get('/package-products', 'Package/addPackageProduct');
+
 //Book 
 $routes->get('/choose-products', 'Book::book_step_two');
 

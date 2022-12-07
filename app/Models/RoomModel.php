@@ -18,6 +18,7 @@ class RoomModel extends Model
 		'room_type',
 		'beds_total',
 		'bed_types',
+		'room_image',
 		'description',
 		'occupants',
 		'created_at',

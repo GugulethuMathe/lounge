@@ -51,36 +51,35 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="products-form">
-
+                    <form method="post" action="<?php echo base_url('product/addProduct'); ?>" enctype="multipart/form-data">
                         <div class="or-seperator"><b></b></div>
                         <div class="row">
                             <div class="col-md-12 my-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control input-lg" id="product_name" placeholder="Product Name" required="required">
+                                    <input type="text" class="form-control input-lg" name="product_name" placeholder="Product Name" required="required">
                                 </div>
                             </div>
                             <div class="col-md-12 my-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control input-lg" id="product_code" placeholder="Product Code" required="required">
+                                    <input type="text" class="form-control input-lg" name="product_code" placeholder="Product Code" required="required">
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12 my-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control input-lg" id="price" placeholder="Price" required="required">
+                                    <input type="text" class="form-control input-lg" name="price" placeholder="Price" required="required">
                                 </div>
                             </div>
                             <div class="col-md-12 my-3">
                                 <div class="form-group">
-                                    <input type="number" class="form-control input-lg" id="quantity" placeholder="Quantity" required="required">
+                                    <input type="number" class="form-control input-lg" name="quantity" placeholder="Quantity" required="required">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="dropdown drop_down">
-                                        <select class="form-control" required="required" id="catergory_id">
-                                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                        <select class="form-control" required="required" name="catergory_id">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
                                             <option label="Choose Catergory"></option>
                                             <?php
                                             $db = \Config\Database::connect();
@@ -91,14 +90,22 @@
                                                 <option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
                                             <?php } ?>
                                         </select>
-                                      
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 my-3">
+                                <div class="form-group">
+                                    <label for="">Product Image</label>
+                                    <div class="fallback">
+                                        <input type="file" name="product_image" id="product_image">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12 my-3">
                                 <div class="form-group">
                                     <label for="">Description</label>
-                                    <textarea class="form-control" id="description" cols="64" rows="5"></textarea>
+                                    <textarea class="form-control" name="description" cols="64" rows="5"></textarea>
                                 </div>
                             </div>
                             <br>

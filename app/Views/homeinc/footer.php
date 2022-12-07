@@ -81,6 +81,7 @@
     <script src='wp-content/themes/thecappa/assets/js/jquery.isotope.v3.0.2.js?ver=6.0.2' id='jquery-isotope-js'></script>
     <script src='wp-content/themes/thecappa/assets/js/pace.js?ver=6.0.2' id='pace-js'></script>
     <script src='wp-content/themes/thecappa/assets/js/popper.min.js?ver=6.0.2' id='popper-js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src='wp-content/themes/thecappa/assets/js/bootstrap.min.js?ver=6.0.2' id='bootstrap-js'></script>
     <script src='wp-content/themes/thecappa/assets/js/scrollIt.min.js?ver=6.0.2' id='scrollIt-js'></script>
     <script src='wp-content/themes/thecappa/assets/js/jquery.waypoints.min.js?ver=6.0.2' id='jquery-waypoints-js'></script>

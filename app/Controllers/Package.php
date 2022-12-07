@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\PackageModel;
+use App\Models\PackproModel;
 
 
 class Package extends BaseController
@@ -43,61 +44,82 @@ class Package extends BaseController
 		return $this->response->setJSON($data);
     }
 
-	public function addPackage()
-	{
-		$data = [];
-		$request = \Config\Services::request();
-		$session = session();
-
-			$model = new PackageModel();
-			$request = \Config\Services::request();
-			$newData = [
-				'name' => $request->getVar('name'),
-				'is_featured' => $request->getVar('is_featured')
-			];
-			
-			$model->save($newData);
-			return $this->response->setJSON($data);
-		
-	}
 	// public function addPackage()
-    // {
-    //     $data = [];
-    //     $model = new PackageModel();
-    //     $request = \Config\Services::request();
+	// {
+	// 	$data = [];
+	// 	$request = \Config\Services::request();
+	// 	$session = session();
 
-    //     $file = $request->getFile("package_image");
+	// 		$model = new PackageModel();
+	// 		$request = \Config\Services::request();
+	// 		$newData = [
+	// 			'name' => $request->getVar('name'),
+	// 			'is_featured' => $request->getVar('is_featured')
+	// 		];
+			
+	// 		$model->save($newData);
+	// 		return $this->response->setJSON($data);
+		
+	// }
 
-    //     $file_type = $file->getClientMimeType();
+    public function addPackageProduct(){
+        
+			$model = new PackproModel();
+			$request = \Config\Services::request();
 
-    //     $valid_file_types = array("image/png", "image/jpeg", "image/jpg");
-    //     $session = session();
+			$newData = [
+				'package_id' => $request->getVar('package_id'),
+				'products' => $request->getVar('products')
+			]; 
 
-    //     if (in_array($file_type, $valid_file_types)) {
+            foreach($newData['products'] as $product){
+                $record = [
+                    'package_id' => $newData['package_id'],
+                    'product_id' => $product
+                ];
+                $model->save($record);
+            }
+           echo 'Submitted';
+    }
 
-    //         // $id_image = $file->getName();
-    //         $newName = $file->getRandomName();
+	public function addPackage()
+    {
+        $data = [];
+        $model = new PackageModel();
+        $request = \Config\Services::request();
+
+        $file = $request->getFile("package_image");
+
+        $file_type = $file->getClientMimeType();
+
+        $valid_file_types = array("image/png", "image/jpeg", "image/jpg");
+        $session = session();
+
+        if (in_array($file_type, $valid_file_types)) {
+
+            // $id_image = $file->getName();
+            $newName = $file->getRandomName();
             
-    //         if ( $file->move('uploads', $newName)) {
+            if ( $file->move('uploads', $newName)) {
 
-    //             $data = array(
-    //                 'name' => $request->getVar('name'),
-    //                 'is_featured' => $request->getVar('is_featured'),
-    //                 "package_image" => "/uploads/" . $newName,
-    //             );
+                $data = array(
+                    'name' => $request->getVar('name'),
+                    'is_featured' => $request->getVar('is_featured'),
+                    "img" => "/uploads/" . $newName,
+                );
 
-    //             if ($model->save($data)) {
-    //                 $session->setFlashdata("success_added", "Package Added Successfully");
+                if ($model->save($data)) {
+                    $session->setFlashdata("success_added", "Package Added Successfully");
 
-    //                 return redirect()->to('/packages');
-    //             }
-    //         } else {
-    //             $session->setFlashdata("error", "Failed to move file");
-    //         }
-    //     } else {
-    //         $session->setFlashdata("error", "Invalid file type selected");
-    //     }
-    // }
+                    return redirect()->to('/packages');
+                }
+            } else {
+                $session->setFlashdata("error", "Failed to move file");
+            }
+        } else {
+            $session->setFlashdata("error", "Invalid file type selected");
+        }
+    }
 	public function addProductPackage()
 	{
 		$data = [];

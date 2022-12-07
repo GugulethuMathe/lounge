@@ -48,15 +48,16 @@ class Room extends BaseController
 				'room_type' => $request->getVar('room_type'),
 				'beds_total' => $request->getVar('beds_total'),
 				'bed_types' => $request->getVar('bed_types'),
+				'room_image' => $request->getVar('room_image'),
 				'description' => $request->getVar('description'),
 				'price' => $request->getVar('price'),
 				'occupants' => $request->getVar('occupants')
 			];
 			
 			$model->save($newData);
-			return $this->response->setJSON($data);
-		
+			return $this->response->setJSON($data);		
 	}
+
 	public function delete()
     {
         $model = new RoomModel();

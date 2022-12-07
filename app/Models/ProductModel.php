@@ -19,6 +19,7 @@ class ProductModel extends Model
 		'product_code',
 		'quantity',
 		'price',
+		'img',
 		'is_featured',
 		'created_at',
 		'description',

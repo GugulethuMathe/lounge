@@ -24,10 +24,10 @@ class Home extends BaseController
 	public function dashboard()
 	{
 		
-		// $data = [
-		// 	'title_meta' => view('partials/title-meta', ['title' => 'Dashboard']),
-		// 	'page_title' => view('partials/page-title', ['title' => 'Dashboard', 'li_1' => 'Iziko de Lounge', 'li_2' => 'Dashboard'])
-		// ];
+		$data = [
+			'title_meta' => view('partials/title-meta', ['title' => 'Dashboard']),
+			'page_title' => view('partials/page-title', ['title' => 'Dashboard', 'li_1' => 'Iziko de Lounge', 'li_2' => 'Dashboard'])
+		];
 		$model = new CustomerModel();
         $data['customers']  = $model->getCustomers()->getResult();
 		

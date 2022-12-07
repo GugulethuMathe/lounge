@@ -337,37 +337,69 @@
         .has-x-large-font-size {
             font-size: var(--wp--preset--font-size--x-large) !important;
         }
+
         input::before {
-    content: "";
-    position: absolute;
-    margin-left: -36px;
-    margin-top: -36px;
-    width: 0px;
-    height: 0px;
-    border-radius: 4px;
-    transform: rotate(-45deg);
-    transition: 200ms ease-in-out;
-}
+            content: "";
+            position: absolute;
+            margin-left: -36px;
+            margin-top: -36px;
+            width: 0px;
+            height: 0px;
+            border-radius: 4px;
+            transform: rotate(-45deg);
+            transition: 200ms ease-in-out;
+        }
 
-input:checked::before {
-    width: 43px;
-    height: 26px;
-    margin-top: -8px;
-    margin-left: 0px;
-    box-shadow: inset 5px -5px #777dc9, -1px 2px 1px #abaed4;
-}
+        input:checked::before {
+            width: 43px;
+            height: 26px;
+            margin-top: -8px;
+            margin-left: 0px;
+            box-shadow: inset 5px -5px #777dc9, -1px 2px 1px #abaed4;
+        }
 
-input::after {
-    content: attr(text);
-    position: absolute;
-    width: 100%;
-    margin-left: 50px;
-    margin-top: -8px;
-    font-size: 28px;
-    color: #f3f3f3;
-    text-shadow: 2px 2px #777dc9;
-}
+        input::after {
+            content: attr(text);
+            position: absolute;
+            width: 100%;
+            margin-left: 50px;
+            margin-top: -8px;
+            font-size: 28px;
+            color: #f3f3f3;
+            text-shadow: 2px 2px #777dc9;
+        }
 
+        .navbar>.container,
+        .navbar>.container-fluid,
+        .navbar>.container-lg,
+        .navbar>.container-md,
+        .navbar>.container-sm,
+        .navbar>.container-xl,
+        .navbar>.container-xxl {
+            display: flex;
+            flex-wrap: inherit;
+            background: transparent;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar {
+            position: relative;
+            background: #000000e0 !important;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .shop-area {
+            padding: 10px 0 !important;
+        }
+        .nav-scroll .navbar-nav .nav-link {
+    color: #d3a10b !important;
+}
         /* div#exampleModal {
     z-index: 10;
 } */
@@ -393,7 +425,7 @@ input::after {
     <link rel='shortlink' href='index.htm'>
     <link rel="alternate" type="application/json+oembed" href="index-2.php?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=https%3A%2F%2Fshtheme.com%2Fdemosd%2Fthecappa%2F">
     <link rel="alternate" type="text/xml+oembed" href="index-3.php?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=https%3A%2F%2Fshtheme.com%2Fdemosd%2Fthecappa%2F&#038;format=xml">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 </head>
@@ -414,7 +446,7 @@ input::after {
     </div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
+        <div class="container-fluid">
             <!-- Logo -->
             <div class="logo-wrapper navbar-brand valign">
                 <a href="<?php echo base_url() ?>/">
@@ -428,73 +460,14 @@ input::after {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto ">
                     <li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101 nav-item"><a title="Home" href="<?php echo base_url() ?>/" class="nav-link">Home</a></li>
-                    <li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101 nav-item"><a title="Services" href="<?php echo base_url() ?>/services" class="nav-link">Services</a></li>
-                    <li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101 nav-item"><a title="About" href="<?php echo base_url() ?>/about" class="nav-link">About</a></li>
-                    <li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-118 nav-item"><a title="Contact" href="<?php echo base_url() ?>/contact" class="nav-link">Contact</a></li>
-                    <li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-118 nav-item"><a type="button" class="btn btn-sm text-warning btn-outline-warning" data-toggle="modal" data-target="#exampleModal">
+                    <li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101 nav-item"><a title="About" href="#about" class="nav-link">About</a></li>
+                    <li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101 nav-item"><a title="Services" href="#services" class="nav-link">Services</a></li>
+
+                    <li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-118 nav-item"><a title="Contact" href="#contact" class="nav-link">Contact</a></li>
+                    <li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-118 nav-item"><a href="<?php echo base_url(); ?>/book" type="button" class="btn btn-sm text-warning btn-outline-warning" >
                             Book Now
                         </a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="packages-form">
-                        <div class="booking-box">
-                            <div class="head-box">
-
-                                <h4 class="text-center">Check Lounge Availability</h4>
-                            </div>
-                            <div class="booking-inner clearfix">
-                                <div role="form" class="wpcf7" id="wpcf7-f119-p30-o2" lang="en-US" dir="ltr">
-                                    <div class="screen-reader-response"></div>
-                                    <form action="" method="post" class="wpcf7-form" novalidate="novalidate">
-
-                                        <div class="form1 clearfix">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="input1_wrapper">
-                                                        <label>Check in</label>
-                                                        <div class="input1_inner">
-                                                            <span class="wpcf7-form-control-wrap check-in"><input type="text" name="check-in" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input datepicker" aria-required="true" aria-invalid="false" placeholder="Check in"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input1_wrapper">
-                                                        <label>Check out</label>
-                                                        <div class="input1_inner">
-                                                            <span class="wpcf7-form-control-wrap check-out"><input type="text" name="check-out" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input datepicker" aria-required="true" aria-invalid="false" placeholder="Check out"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <input type="submit" value="Check Availability" class="wpcf7-form-control wpcf7-submit btn-form1-submit mt-15"><span class="ajax-loader"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wpcf7-response-output wpcf7-display-none"></div>
-                                    </form>
-                                </div>
-                            </div>
-                         
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-sm btn-primary">Check Availability</button>
-                </div>
-            </div>
-        </div>
-    </div>

@@ -13,7 +13,29 @@
 }
 
 </style>
+<script>
+        $(function() {
 
+            <?php if (session()->has("success_added")) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '<?= session("success_added") ?>'
+                })
+        });
+        <?php } ?>
+        $(function() {
+
+            <?php if (session()->has("error")) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '<?= session("error") ?>'
+                })
+            <?php } ?>
+        });
+       
+    </script>
 </head>
 
 <body data-layout-mode="dark" data-topbar="dark" data-sidebar="dark">

@@ -91,7 +91,7 @@
                                                 <div style="padding-bottom: 20px" class="booking-box">
                                                     <div class="head-box">
                                                         <h6 class="text-center congrats">Congratulation the lounge is available, book an event now. </h6>
-                                                        <h6 class="text-center selext" style="display:none;">Select packages, products and services you need for the event </h6>
+                                                        <h6 class="text-center selext" style="display:none;">Select and customize a package</h6>
                                                         <h4 class="text-center"></h4>
                                                     </div>
                                                     <div class="booking-inner clearfix">
@@ -154,18 +154,7 @@
                                                                     </div>
                                                             </form>
 
-                                                            <div class="col-md-12 book">
-                                                                <h4 style="color: #aa8453;" class="">Are you also looking for Accomodation</h4>
-                                                                <input type="radio" value="Yes" name="accomodation" class="wpcf7-form-control ml-3  mt-10"> Yes
-                                                                <input type="radio" value="No" name="accomodation" class="wpcf7-form-control ml-3 mt-10"> No
-                                                            </div>
-                                                            <br>
-                                                            <div class="col-md-12 book">
-                                                                <h4 style="color: #aa8453;" class="">Select a package below by checking the box</h4>
-                                                            </div>
-
                                                         </div>
-                                                        <!-- <div class="wpcf7-response-output wpcf7-display-none"></div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -179,8 +168,9 @@
         </div>
     </section>
 </div>
-
 </section>
+
+</div>
 
 <section id="packagesm" class="book elementor-section elementor-top-section elementor-element elementor-element-8b364e8 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8b364e8" data-element_type="section">
     <div class="elementor-container elementor-column-gap-no">
@@ -191,92 +181,140 @@
                         <section style="padding: 60px" class="news section-padding bg-black">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="owl-carousel owl-theme">
-                                            <div class="item">
+                                    <div class="row">
+                                        <?php
+                                        $db = \Config\Database::connect();
+                                        $query   = $db->query('SELECT * FROM packages');
+                                        $results = $query->getResult();
+                                        foreach ($results as $pack) {
+                                        ?>
+                                            <div class="col-md-3">
+                                                <article class="aa-properties-item">
+                                                    <a type="button" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>" class="aa-properties-item-img">
+                                                        <img width="270" height="120" src="<?php echo base_url() ?> <?php echo $pack->img; ?>" alt="">
+                                                    </a>
+                                                    <div class="aa-tag for-sale bg-success p-3">
+                                                        <h3><span style="color: #fff;"> Package Name:
+                                                                <a type="button" class="btn text-warning btn-outline-warning" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>">
+                                                                    <?php echo $pack->name; ?>
+                                                                </a>
+                                                            </span></h3>
+                                                    </div>
+                                                    <div class="aa-properties-item-content">
+                                                        <div class="aa-properties-info">
+                                                            <span></span>
+                                                        </div>
+                                                        <div class="aa-properties-about">
+                                                            <p class="card-description">
+                                                            </p>
+                                                        </div>
+                                                        <div class="aa-properties-detial">
 
-
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/pack/1.jpg" alt="">
-                                                    <div class="date">
-                                                        <input type="checkbox" name="check">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="con">
-                                                    <span class="category">Description </span>
-                                                    <h5><a href="choose-products">View Package 1</a></h5>
-                                                </div>
+                                                </article>
                                             </div>
-                                            <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/pack/2.jfif" alt="">
-                                                    <div class="date">
-                                                        <a href="choose-products"> <span> <input type="checkbox" name="check"></span> </a>
-                                                    </div>
-                                                </div>
-                                                <div class="con">
-                                                    <span class="category">Description</span>
-                                                    <h5><a href="choose-products">View Package 2</a></h5>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/pack/3.jpg" alt="">
-                                                    <div class="date">
-                                                        <a href="choose-products"> <span> <input type="checkbox" name="check"></span> </a>
-                                                    </div>
-                                                </div>
-                                                <div class="con">
-                                                    <span class="category">Description</span>
-                                                    <h5><a href="choose-products">View Package 3</a></h5>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/4-2.jpg" alt="">
-                                                    <div class="date">
-                                                        <a href="choose-products"> <span> <input type="checkbox" name="check"></span> </a>
-                                                    </div>
-                                                </div>
-                                                <div class="con">
-                                                    <span class="category">Description</span>
-                                                    <h5><a href="choose-products">View Package 4</a></h5>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/6-1.jpg" alt="">
-                                                    <div class="date">
-                                                        <a href="choose-products"> <span> <input type="checkbox" name="check"></span> </a>
-                                                    </div>
-                                                </div>
-                                                <div class="con">
-                                                    <span class="category">Description</span>
-                                                    <h5><a href="choose-products">View Package 5</a></h5>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/5-2.jpg" alt="">
-                                                    <div class="date">
-                                                        <a href="choose-products"> <span> <input type="checkbox" name="check"></span> </a>
-                                                    </div>
-                                                </div>
-                                                <div class="con">
-                                                    <span class="category">Description</span>
-                                                    <h5><a href="choose-products">View Package 6</a></h5>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
                         </section>
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                             <input type="submit" onclick="showPackage()" value="Submit" class="wpcf7-form-control wpcf7-submit btn-form1-submit mt-15"><span class="ajax-loader"></span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-</div>
+<?php
+$db = \Config\Database::connect();
+$query   = $db->query('SELECT * FROM packages LIMIT 6');
+$results = $query->getResult(); ?>
+<?php
+foreach ($results as $pack) {
+?>
+    <div class="modal fade exampleModal-<?= $pack->id ?>" id="exampleModal-<?= $pack->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="shop-area pt-10 pb-100">
+                        <!-- Product -->
+                        <div class="container">
+                            <div class="row">
+                                <h4 class="text-center">
+                                    Select Products for <?= $pack->name ?>
+                                </h4>
+                                <br>
+                                <br>
+                                <br>
+                                <?php
+                                $db = \Config\Database::connect();
+                                $query_prod   = $db->query('SELECT * FROM products');
+                                $results_prod = $query_prod->getResult();
+                                foreach ($results_prod as $prod) {
+                                ?>
+                                    <div class="col-md-3 product-item card-container snipcss-PVKSK">
+                                        <div class="product-wrapper mb-75">
+                                            <div class="product-img mb-25">
+                                                <div class="sale">
+                                                    <span class="site-button button-sm">
+                                                        <label for="">
+                                                            Add
+                                                            <input type="checkbox" name="" id="">
+                                                        </label>
 
+                                                    </span>
+                                                </div>
+                                                <img width="200" height="200" src="<?php echo base_url() ?><?php echo $prod->img; ?>">
+                                            </div>
+                                            <div class="product-content">
+                                                <h4 class="shop">
+                                                    <?= $prod->product_name; ?>
+                                                    </a>
+                                                </h4>
+                                                <div class="product-meta">
+                                                    <div class="pro-price">
+                                                        <span class="price">
+                                                            <del>
+
+                                                            </del>
+                                                            <ins>
+                                                                <span class="woocommerce-Price-amount amount">
+                                                                    <span class="woocommerce-Price-currencySymbol">
+                                                                        Price: R
+                                                                    </span>
+                                                                    <?= $prod->price; ?>
+                                                                </span>
+                                                            </ins>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="shop-add-to-cart">
+                                                    <?= $prod->description; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-success text-white" onclick="showRooms()" data-dismiss="modal">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
 <?= $this->include('homeinc/footer') ?>
 <script>
     $(document).ready(function() {
@@ -300,11 +338,11 @@
     }
 
     function showRooms() {
-        $('.book').show();
+        $('.room').show();
     }
 
     function hideRooms() {
-        $('.book').show();
+        $('.room').show();
     }
 
     $('#customers-form').on('submit', function(e) {
