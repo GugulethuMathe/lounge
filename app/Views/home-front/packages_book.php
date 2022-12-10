@@ -9,51 +9,50 @@
                         <div class="elementor-widget-container">
 
                             <section class="testimonials my-4">
-                                <div class="background bg-img bg-fixed section-padding pb-0" data-background="https://shtheme.com/demosd/thecappa/wp-content/uploads/2022/06/2.jpg" data-overlay-dark="2">
+                                <div class="background bg-img bg-fixed section-padding pb-0" data-background="<?php echo base_url() ?>/assets/images/2.jpg" data-overlay-dark="2">
                                     <div class="container">
                                         <div class="row">
-                                        <div style="padding-bottom: 20px" class="booking-box">
-                                            <div class="head-box">
-                                                <h6 class="text-center congrats">Fill in the form below to get started. </h6>
-                                                <h4 class="text-center"></h4>
-                                            </div>
-                                            <div class="row">
-                                                <?php
-                                                $db = \Config\Database::connect();
-                                                $query   = $db->query('SELECT * FROM packages');
-                                                $results = $query->getResult();
-                                                foreach ($results as $pack) {
-                                                ?>
-                                                    <div class="col-md-3">
-                                                        <article class="aa-properties-item">
-                                                            <a type="button" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>" class="aa-properties-item-img">
-                                                                <img width="270" height="120" src="<?php echo base_url() ?> <?php echo $pack->img; ?>" alt="">
-                                                            </a>
-                                                            <div class="aa-tag for-sale bg-success p-3">
-                                                                <h3><span style="color: #fff;"> Package Name:
-                                                                        <a type="button" class="btn text-warning btn-outline-warning" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>">
-                                                                            <?php echo $pack->name; ?>
-                                                                        </a>
-                                                                    </span></h3>
-                                                            </div>
-                                                            <div class="aa-properties-item-content">
-                                                                <div class="aa-properties-info">
-                                                                    <span></span>
-                                                                </div>
-                                                                <div class="aa-properties-about">
-                                                                    <p class="card-description">
-                                                                    </p>
-                                                                </div>
-                                                                <div class="aa-properties-detial">
+                                            <div style="padding-bottom: 20px" class="booking-box">
+                                                <div class="head-box">
+                                                    <h6 class="text-center congrats">Fill in the form below to get started. </h6>
+                                                    <h4 class="text-center"></h4>
+                                                </div>
+                                                <div class="row">
+                                                    <?php
+                                                    $db = \Config\Database::connect();
+                                                    $query = $db->query('SELECT * FROM packages');
+                                                    $results = $query->getResult();
+                                                    foreach ($results as $pack) {
+                                                    ?>
+                                                        <div class="col-md-3">
+                                                            <article class="aa-properties-item">
+                                                                <a type="button" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>" class="aa-properties-item-img">
+                                                                    <img width="270" height="120" src="<?php echo base_url() ?> <?php echo $pack->img; ?>" alt="">
+                                                                </a>
+                                                                <div class="aa-tag for-sale bg-success p-3">
+                                                                    <h3><span style="color: #fff;"> Package Name:
 
+                                                                            <a class="btn text-warning btn-outline-warning" data-bs-toggle="modal" href="#product_package" role="button"> <?php echo $pack->name; ?></a>
+                                                                        </span></h3>
                                                                 </div>
-                                                            </div>
-                                                        </article>
-                                                    </div>
-                                                <?php } ?>
+                                                                <div class="aa-properties-item-content">
+                                                                    <div class="aa-properties-info">
+                                                                        <span></span>
+                                                                    </div>
+                                                                    <div class="aa-properties-about">
+                                                                        <p class="card-description">
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="aa-properties-detial">
+
+                                                                    </div>
+                                                                </div>
+                                                            </article>
+                                                        </div>
+                                                    <?php } ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                         </div>
@@ -63,6 +62,246 @@
         </div>
     </section>
 </div>
+
+
+<?php
+$db = \Config\Database::connect();
+$query = $db->query('SELECT * FROM packages');
+$results = $query->getResult(); ?>
+<?php
+foreach ($results as $pack) {
+?>
+    <div class="modal fade" id="product_package" aria-hidden="true" aria-labelledby="product_packageToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                <img src="assets/images/izikologo.png" class="logo-img" alt="">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-9">
+                            <div class="shop-area pt-10 pb-100">
+                                <!-- Product -->
+                                <div class="container">
+                                    <div class="row">
+                                        <h4 class="text-center">
+                                            Select Products for <?= $pack->name ?>
+                                        </h4>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <?php
+                                        $db = \Config\Database::connect();
+                                        $query_prod = $db->query('SELECT * FROM products');
+                                        $results_prod = $query_prod->getResult();
+                                        foreach ($results_prod as $prod) {
+                                        ?>
+                                            <div class="col-md-3 product-item card-container snipcss-PVKSK">
+                                                <div class="product-wrapper mb-75">
+                                                    <div class="product-img mb-25">
+                                                        <div class="sale">
+                                                            <span class="site-button button-sm">
+                                                                <label for="">
+                                                                    Add
+                                                                    <input type="checkbox" name="" id="">
+                                                                </label>
+
+                                                            </span>
+                                                            <img width="200" height="200" src="<?php echo base_url() ?>/<?= $prod->img; ?>" sizes="(max-width: 200px) 100vw, 200px">
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <h4 class="shop">
+                                                            <?= $prod->product_name; ?>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="product-meta">
+                                                            <div class="pro-price">
+                                                                <span class="price">
+                                                                    <del>
+
+                                                                    </del>
+                                                                    <ins>
+                                                                        <span class="woocommerce-Price-amount amount">
+                                                                            <span class="woocommerce-Price-currencySymbol">
+                                                                                Price: R
+                                                                            </span>
+                                                                            <?= $prod->price; ?>
+                                                                        </span>
+                                                                    </ins>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="shop-add-to-cart">
+                                                            <?= $prod->description; ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="border: 1px solid #dfdfdf;;" class="col-md-2">
+                            <h4 class="text-center shop my-1">
+                                Your Order
+
+                            </h4>
+                            <hr>
+                            <div class="shop-add-to-cart">
+                                Number of People: 3
+                            </div>
+
+                            <div style="position: absolute; bottom: 0px;" class="shop-add-to-cart">
+                                Total: R300
+                            </div>
+
+
+                            <div class="row" style="padding-left:10px; position: absolute; bottom: 0px;">
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div  style="margin: auto; width: 50%;" class="modal-footer">
+                    <button class="btn btn-sm btn-primary" data-bs-target="#products" data-bs-toggle="modal" data-bs-dismiss="modal">Add more Products</button>
+                    <button type="button" class="btn btn-sm bg-success text-white" data-dismiss="modal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+
+<?php
+$db = \Config\Database::connect();
+$query = $db->query('SELECT * FROM packages');
+$results = $query->getResult(); ?>
+<?php
+foreach ($results as $pack) {
+?>
+    <div class="modal fade" id="products" aria-hidden="true" aria-labelledby="productsToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                <img src="assets/images/izikologo.png" class="logo-img" alt="">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-9">
+                            <div class="shop-area pt-10 pb-100">
+                                <!-- Product -->
+                                <div class="container">
+                                    <div class="row">
+                                        <h4 class="text-center">
+                                            Add More Product to your Order
+                                        </h4>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <?php
+                                        $db = \Config\Database::connect();
+                                        $query_prod = $db->query('SELECT * FROM products');
+                                        $results_prod = $query_prod->getResult();
+                                        foreach ($results_prod as $prod) {
+                                        ?>
+                                            <div class="col-md-3 product-item card-container snipcss-PVKSK">
+                                                <div class="product-wrapper mb-75">
+                                                    <div class="product-img mb-25">
+                                                        <div class="sale">
+                                                            <span class="site-button button-sm">
+                                                                <label for="">
+                                                                    Add
+                                                                    <input type="checkbox" name="" id="">
+                                                                </label>
+
+                                                            </span>
+                                                            <img width="200" height="200" src="<?php echo base_url() ?>/<?= $prod->img; ?>" sizes="(max-width: 200px) 100vw, 200px">
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <h4 class="shop">
+                                                            <?= $prod->product_name; ?>
+                                                            </a>
+                                                        </h4>
+                                                        <div class="product-meta">
+                                                            <div class="pro-price">
+                                                                <span class="price">
+                                                                    <del>
+
+                                                                    </del>
+                                                                    <ins>
+                                                                        <span class="woocommerce-Price-amount amount">
+                                                                            <span class="woocommerce-Price-currencySymbol">
+                                                                                Price: R
+                                                                            </span>
+                                                                            <?= $prod->price; ?>
+                                                                        </span>
+                                                                    </ins>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="shop-add-to-cart">
+                                                            <?= $prod->description; ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="border: 1px solid #dfdfdf;;" class="col-md-2">
+                            <h4 class="text-center shop my-1">
+                                Your Order
+
+                            </h4>
+                            <hr>
+                            <div class="shop-add-to-cart">
+                                Number of People: 3
+                            </div>
+
+                            <div style="position: absolute; bottom: 0px;" class="shop-add-to-cart">
+                                Total: R300
+                            </div>
+
+
+                            <div class="row" style="padding-left:10px; position: absolute; bottom: 0px;">
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div style="margin: auto; width: 50%;" class="modal-footer">
+                    <button type="button" class="btn btn-sm bg-success text-white" data-dismiss="modal">Submit</button>
+                    <a class="btn btn-sm bg-primary text-white" data-bs-toggle="modal" href="#product_package" role="button">Back to the package</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+
+
+
+
+
+
+
 
 <?= $this->include('homeinc/footer') ?>
 <script>

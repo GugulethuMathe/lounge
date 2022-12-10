@@ -350,6 +350,10 @@
             transition: 200ms ease-in-out;
         }
 
+        .sale img {
+            width: 120px;
+        }
+
         input:checked::before {
             width: 43px;
             height: 26px;
@@ -397,8 +401,18 @@
         .shop-area {
             padding: 10px 0 !important;
         }
+
         .nav-scroll .navbar-nav .nav-link {
-    color: #d3a10b !important;
+            color: #d3a10b !important;
+        }
+
+        .modal-fullscreen .modal-header {
+            border-radius: 0;
+            padding: 0;
+        }
+        .modal-header img.logo-img {
+    /* padding: 10px; */
+    width: 100px;
 }
         /* div#exampleModal {
     z-index: 10;
@@ -464,7 +478,7 @@
                     <li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101 nav-item"><a title="Services" href="#services" class="nav-link">Services</a></li>
 
                     <li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-118 nav-item"><a title="Contact" href="#contact" class="nav-link">Contact</a></li>
-                    <li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-118 nav-item"><a href="<?php echo base_url(); ?>/book" type="button" class="btn btn-sm text-warning btn-outline-warning" >
+                    <li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-118 nav-item"><a href="<?php echo base_url(); ?>/book" type="button" class="btn btn-sm text-warning btn-outline-warning">
                             Book Now
                         </a></li>
                 </ul>

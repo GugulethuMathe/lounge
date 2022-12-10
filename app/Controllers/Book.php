@@ -26,26 +26,31 @@ class Book extends BaseController
 		return view('home-front/book', $data);
 	}
 
-	public function customerCheckDate()
+	public function addCustomer()
 	{
 		
 		$request = \Config\Services::request();
 		$session = session();
 		
 		$model = new CustomerModel();
-		$data['packages']  = $model->getPackages()->getResult();
+		// $data['packages']  = $model->getPackages()->getResult();
 		
 			$newData = [
 				'first_name' => $request->getVar('first_name'),
 				'last_name' => $request->getVar('last_name'),
 				'email' => $request->getVar('email'),
 				'phone' => $request->getVar('phone'),
+				'event_status' => 'Pending',
 				'start_date' => $request->getVar('start_date'),
-				'end_date' => $request->getVar('end_date')
+				'end_date' => $request->getVar('end_date'),
+				'number' => $request->getVar('number')
 			];
 			
 			$model->save($newData);
-			return $this->response->setJSON($data);
+			// return $this->response->setJSON($data);
+			$session->setFlashdata("success", "Successfully");
+
+		return redirect()->to('/choose-package');
 		
 	}
 
