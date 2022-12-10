@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2022 at 08:36 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Generation Time: Dec 10, 2022 at 11:48 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,24 +37,16 @@ CREATE TABLE `customers` (
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
   `event_status` varchar(150) DEFAULT NULL,
-  `description` varchar(100) DEFAULT NULL
+  `description` varchar(100) DEFAULT NULL,
+  `number` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `first_name`, `last_name`, `phone`, `email`, `created_at`, `start_date`, `end_date`, `event_status`, `description`) VALUES
-(1, 'Gugulethu', 'Mathe', '+27659453937', 'gugulethumath@gmail.com', '2022-12-08 06:26:44.528009', '2022-12-01', '2022-12-09', 'Pending', NULL),
-(2, '', '', '', '', '2022-12-08 08:33:18.108407', '1969-12-31', '1969-12-31', 'Pending', NULL),
-(3, '', '', '', '', '2022-12-08 08:40:06.732412', '1969-12-31', '1969-12-31', 'Pending', NULL),
-(4, 'Gugulethu', 'Mathe', '+27659453937', 'gugulethumath@gmail.com', '2022-12-09 07:04:25.748538', '2022-12-14', '2022-12-14', 'Pending', NULL),
-(5, '', '', '', '', '2022-12-09 07:08:30.273641', '1969-12-31', '1969-12-31', 'Pending', NULL),
-(6, '', '', '', '', '2022-12-09 07:14:27.632407', '1969-12-31', '1969-12-31', 'Pending', NULL),
-(7, '', '', '', '', '2022-12-09 07:17:15.049229', '1969-12-31', '1969-12-31', 'Pending', NULL),
-(8, '', '', '', '', '2022-12-09 07:17:16.045133', '1969-12-31', '1969-12-31', 'Pending', NULL),
-(9, '', '', '', '', '2022-12-09 07:25:27.237571', '1969-12-31', '1969-12-31', 'Pending', NULL),
-(10, '', '', '', '', '2022-12-09 07:58:22.876992', '1969-12-31', '1969-12-31', 'Pending', NULL);
+INSERT INTO `customers` (`id`, `first_name`, `last_name`, `phone`, `email`, `created_at`, `start_date`, `end_date`, `event_status`, `description`, `number`) VALUES
+(1, 'Gugulethu', 'Mathe', '+27659453937', 'gugulethumath@gmail.com', '2022-12-10 08:30:33.877876', '0000-00-00', '0000-00-00', NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -318,7 +310,7 @@ ALTER TABLE `room_order`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `managers`
