@@ -14,83 +14,9 @@
                                         <div class="row">
                                             <!-- Booking From -->
                                             <div class="col-md-12">
-                                                <div class="booking-box">
-                                                    <div class="head-box">
-                                                        <h6 class="text-center">Check Lounge Availability</h6>
-                                                        <h4 class="text-center"></h4>
-                                                    </div>
-                                                    <div class="booking-inner clearfix">
-                                                        <div role="form" class="wpcf7" id="wpcf7-f119-p30-o2" lang="en-US" dir="ltr">
-                                                            <div class="screen-reader-response"></div>
-                                                            <h4 style="color: #aa8453;" class="">Check Availabity</h4>
-                                                            <form action="" method="post" class="wpcf7-form" novalidate="novalidate">
-
-                                                                <div class="form1 clearfix">
-                                                                    <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="input1_wrapper">
-                                                                                <label>Check in</label>
-                                                                                <div class="input1_inner">
-                                                                                    <span class="wpcf7-form-control-wrap check-in"><input type="text" name="check-in" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input datepicker" aria-required="true" aria-invalid="false" placeholder="Check in"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="input1_wrapper">
-                                                                                <label>Check out</label>
-                                                                                <div class="input1_inner">
-                                                                                    <span class="wpcf7-form-control-wrap check-out"><input type="text" name="check-out" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input datepicker" aria-required="true" aria-invalid="false" placeholder="Check out"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-
-                                                                        <div class="col-md-6">
-                                                                            <div class="select1_wrapper">
-
-                                                                            </div>
-                                                                        </div>
-
-
-                                                                        <div class="col-md-12">
-                                                                            <input type="submit" onclick="showPackage()" value="Check Availability" class="wpcf7-form-control wpcf7-submit btn-form1-submit mt-15"><span class="ajax-loader"></span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="wpcf7-response-output wpcf7-display-none"></div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-<div style="display:none;" id="packagesm" data-elementor-type="wp-page" data-elementor-id="67" class="elementor elementor-67">
-    <section class="elementor-section elementor-top-section elementor-element elementor-element-586cb53 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="586cb53" data-element_type="section">
-        <div class="elementor-container elementor-column-gap-no">
-            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7c6dcf6" data-id="7c6dcf6" data-element_type="column">
-                <div class="elementor-widget-wrap elementor-element-populated">
-                    <div class="elementor-element elementor-element-5b06601 elementor-align-left elementor-widget elementor-widget-home-testimonials-2" data-id="5b06601" data-element_type="widget" data-widget_type="home-testimonials-2.default">
-                        <div class="elementor-widget-container">
-
-                            <section class="testimonials my-4">
-                                <div class="background bg-img bg-fixed section-padding pb-0" data-background="https://shtheme.com/demosd/thecappa/wp-content/uploads/2022/06/2.jpg" data-overlay-dark="2">
-                                    <div class="container">
-                                        <div class="row">
-                                            <!-- Booking From -->
-                                            <div class="col-md-12">
                                                 <div style="padding-bottom: 20px" class="booking-box">
                                                     <div class="head-box">
-                                                        <h6 class="text-center congrats">Congratulation the lounge is available, book an event now. </h6>
+                                                        <h6 class="text-center congrats">Fill in the form below to get started. </h6>
                                                         <h6 class="text-center selext" style="display:none;">Select and customize a package</h6>
                                                         <h4 class="text-center"></h4>
                                                     </div>
@@ -134,6 +60,7 @@
                                                                             </div>
                                                                         </div>
                                                                         <br>
+
                                                                         <div class="col-md-6">
                                                                             <div class="input1_wrapper">
                                                                                 <label>Check in</label>
@@ -150,6 +77,17 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <br>
+
+                                                                        <div class="col-md-6">
+                                                                            <div class="input1_wrapper">
+                                                                                <label>Number of people</label>
+                                                                                <div class="input1_inner">
+                                                                                    <span class="wpcf7-form-control-wrap"><input type="text" id="phone" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input" aria-required="true" aria-invalid="false" placeholder="Number of people"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
                                                                         <input type="submit" onclick="showBooking()" value="Next" class="wpcf7-form-control wpcf7-submit btn-form1-submit mt-15"><span class="ajax-loader"></span>
                                                                     </div>
                                                             </form>
@@ -168,66 +106,7 @@
         </div>
     </section>
 </div>
-</section>
 
-</div>
-
-<section id="packagesm" class="book elementor-section elementor-top-section elementor-element elementor-element-8b364e8 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8b364e8" data-element_type="section">
-    <div class="elementor-container elementor-column-gap-no">
-        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-319b36c" data-id="319b36c" data-element_type="column">
-            <div class="elementor-widget-wrap elementor-element-populated">
-                <div class="elementor-element elementor-element-2850392 elementor-align-left elementor-widget elementor-widget-home-blog" data-id="2850392" data-element_type="widget" data-widget_type="home-blog.default">
-                    <div class="elementor-widget-container">
-                        <section style="padding: 60px" class="news section-padding bg-black">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="row">
-                                        <?php
-                                        $db = \Config\Database::connect();
-                                        $query   = $db->query('SELECT * FROM packages');
-                                        $results = $query->getResult();
-                                        foreach ($results as $pack) {
-                                        ?>
-                                            <div class="col-md-3">
-                                                <article class="aa-properties-item">
-                                                    <a type="button" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>" class="aa-properties-item-img">
-                                                        <img width="270" height="120" src="<?php echo base_url() ?> <?php echo $pack->img; ?>" alt="">
-                                                    </a>
-                                                    <div class="aa-tag for-sale bg-success p-3">
-                                                        <h3><span style="color: #fff;"> Package Name:
-                                                                <a type="button" class="btn text-warning btn-outline-warning" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>">
-                                                                    <?php echo $pack->name; ?>
-                                                                </a>
-                                                            </span></h3>
-                                                    </div>
-                                                    <div class="aa-properties-item-content">
-                                                        <div class="aa-properties-info">
-                                                            <span></span>
-                                                        </div>
-                                                        <div class="aa-properties-about">
-                                                            <p class="card-description">
-                                                            </p>
-                                                        </div>
-                                                        <div class="aa-properties-detial">
-
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- <div class="col-md-12">
-                            <input type="submit" onclick="showPackage()" value="Submit" class="wpcf7-form-control wpcf7-submit btn-form1-submit mt-15"><span class="ajax-loader"></span>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <?php
 $db = \Config\Database::connect();
 $query   = $db->query('SELECT * FROM packages LIMIT 6');
@@ -272,7 +151,6 @@ foreach ($results as $pack) {
 
                                                     </span>
                                                 </div>
-                                                <img width="200" height="200" src="<?php echo base_url() ?><?php echo $prod->img; ?>">
                                             </div>
                                             <div class="product-content">
                                                 <h4 class="shop">
@@ -332,8 +210,9 @@ foreach ($results as $pack) {
 
     function showBooking() {
         $('.book').show();
+        $('#packagesm').show();
         $('.selext').show();
-        $('.personal').hide();
+        // $('.personal').hide();
         $('.congrats').hide();
     }
 

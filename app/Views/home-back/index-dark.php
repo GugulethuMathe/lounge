@@ -119,10 +119,11 @@
                                             <td><?= $row->email; ?></td>
                                             <td><?= $row->start_date; ?></td>
                                             <td><?= $row->end_date; ?></td>
+
                                             <td>
-                                                <a href="" class="btn btn-sm btn-outline-primary"><i class="fa fa-eye">View
-                                                    </i></a>
-                                                  
+
+
+                                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-id="<?= $row->id; ?>" data-bs-target="#exampleModalFullscreen"><i class="fa fa-eye">View order</i></button>
                                                 <a href="" class="btn btn-sm btn-outline-success"><i class="fa fa-check">Accept
                                                     </i></a>
                                                 <a href="" class="btn btn-sm btn-danger"><i class="fa fa-mail"></i>Decline</a>
@@ -151,93 +152,60 @@
 
 </div>
 <!-- END layout-wrapper -->
+
 <?php
-$db = \Config\Database::connect();
-$query   = $db->query('SELECT * FROM packages LIMIT 6');
-$results = $query->getResult(); ?>
-<?php
-foreach ($results as $pack) {
+foreach ($customers as $row) {
 ?>
-    <div class="modal fade exampleModal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen" role="document">
+    
+    </div>
+      <!-- Details modal -->
+      <div id="exampleModalFullscreen" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="modal-title" id="exampleModalFullscreenLabel"><?= $row->first_name; ?></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="shop-area pt-10 pb-100">
-                        <!-- Product -->
-                        <div class="container">
-                            <div class="row">
-                                <h4 class="text-center">
-                                    Select Products for <?= $pack->name ?>
-                                </h4>
-                                <br>
-                                <br>
-                                <br>
-                                <?php
-                                $db = \Config\Database::connect();
-                                $query_prod   = $db->query('SELECT * FROM products');
-                                $results_prod = $query_prod->getResult();
-                                foreach ($results_prod as $prod) {
-                                ?>
-                                    <div class="col-md-3 product-item card-container snipcss-PVKSK">
-                                        <div class="product-wrapper mb-75">
-                                            <div class="product-img mb-25">
-                                                <div class="sale">
-                                                    <span class="site-button button-sm">
-                                                        <label for="">
-                                                            Add
-                                                            <input type="checkbox" name="" id="">
-                                                        </label>
-
-                                                    </span>
-                                                </div>
-                                                <img width="200" height="200" src="<?php echo base_url() ?><?php echo $prod->img; ?>">
-                                            </div>
-                                            <div class="product-content">
-                                                <h4 class="shop">
-                                                    <?= $prod->product_name; ?>
-                                                    </a>
-                                                </h4>
-                                                <div class="product-meta">
-                                                    <div class="pro-price">
-                                                        <span class="price">
-                                                            <del>
-
-                                                            </del>
-                                                            <ins>
-                                                                <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol">
-                                                                        Price: R
-                                                                    </span>
-                                                                    <?= $prod->price; ?>
-                                                                </span>
-                                                            </ins>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="shop-add-to-cart">
-                                                    <?= $prod->description; ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
+                    <h5> <button type="button" class="btn btn-outline-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Add Products</button></h5>
+                    <p>Cras mattis consectetur purus sit amet fermentum.
+                        Cras justo odio, dapibus ac facilisis in,
+                        egestas eget quam. Morbi leo risus, porta ac
+                        consectetur ac, vestibulum at eros.</p>
+                    <p>Praesent commodo cursus magna, vel scelerisque
+                        nisl consectetur et. Vivamus sagittis lacus vel
+                        augue laoreet rutrum faucibus dolor auctor.</p>
+                    <p>Aenean lacinia bibendum nulla sed consectetur.
+                        Praesent commodo cursus magna, vel scelerisque
+                        nisl consectetur et. Donec sed odio dui. Donec
+                        ullamcorper nulla non metus auctor
+                        fringilla.</p>
+                    <p>Cras mattis consectetur purus sit amet fermentum.
+                        Cras justo odio, dapibus ac facilisis in,
+                        egestas eget quam. Morbi leo risus, porta ac
+                        consectetur ac, vestibulum at eros.</p>
+                    <p>Praesent commodo cursus magna, vel scelerisque
+                        nisl consectetur et. Vivamus sagittis lacus vel
+                        augue laoreet rutrum faucibus dolor auctor.</p>
+                    <p>Aenean lacinia bibendum nulla sed consectetur.
+                        Praesent commodo cursus magna, vel scelerisque
+                        nisl consectetur et. Donec sed odio dui. Donec
+                        ullamcorper nulla non metus auctor
+                        fringilla.</p>
+                    <p>Cras mattis consectetur purus sit amet fermentum.
+                        Cras justo odio, dapibus ac facilisis in,
+                        egestas eget quam. Morbi leo risus, porta ac
+                        consectetur ac, vestibulum at eros.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn bg-success text-white" onclick="showRooms()" data-dismiss="modal">Submit</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
                 </div>
-            </div>
-        </div>
-    </div>
-<?php } ?>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+<?php  } ?>
 <?= $this->include('partials/right-sidebar') ?>
 
 <?= $this->include('partials/vendor-scripts') ?>

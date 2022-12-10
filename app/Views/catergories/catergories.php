@@ -128,8 +128,7 @@
                 url: "<?php echo base_url(); ?>/catergories/addCategories",
                 type: 'GET',
                 data: {
-                    name: name,
-                   
+                    name: name,                   
                 },
                 // dataType: "JSON",
                 success: function(response) {

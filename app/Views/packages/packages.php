@@ -60,9 +60,7 @@
         foreach ($product_result as $sub_data) {
             $product_name = "'" . $sub_data->product_name . "'";
             $tab_content .= '
-        
-             
-                 
+                        
                  <input style type="hidden" id="package_id" class="ids" value="' . $package_id . '" name="package_id">
                 
                 <input type="checkbox" onchange="handleChange(' . $sub_data->id . ',' . $product_name . ')" id="product_id-' . $sub_data->id . '" name="product" value="' . $sub_data->id . '" id="">&nbsp;
@@ -182,6 +180,7 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    
     <div class="modal fade bs-example-modal-center" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

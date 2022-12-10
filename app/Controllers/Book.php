@@ -25,13 +25,38 @@ class Book extends BaseController
 
 		return view('home-front/book', $data);
 	}
-	public function book_step_two()
+
+	public function customerCheckDate()
+	{
+		
+		$request = \Config\Services::request();
+		$session = session();
+		
+		$model = new CustomerModel();
+		$data['packages']  = $model->getPackages()->getResult();
+		
+			$newData = [
+				'first_name' => $request->getVar('first_name'),
+				'last_name' => $request->getVar('last_name'),
+				'email' => $request->getVar('email'),
+				'phone' => $request->getVar('phone'),
+				'start_date' => $request->getVar('start_date'),
+				'end_date' => $request->getVar('end_date')
+			];
+			
+			$model->save($newData);
+			return $this->response->setJSON($data);
+		
+	}
+
+	public function select_package()
 	{
 		// $model = new CustomerModel();
 		// $data['packages']  = $model->getPackages()->getResult();
 
-		return view('home-front/book_step_two');
+		return view('home-front/packages_book');
 	}
+
 	public function addProduct()
 	{
 		$data = [];

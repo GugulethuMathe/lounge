@@ -50,6 +50,7 @@ $routes->get('/package-products', 'Package/addPackageProduct');
 
 //Book 
 $routes->get('/choose-products', 'Book::book_step_two');
+$routes->get('/choose-package', 'Book::select_package');
 
 //Managers
 $routes->post('/add-staff', 'Manager::addManager');
