@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2022 at 11:48 AM
+-- Generation Time: Dec 11, 2022 at 09:53 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -46,7 +46,11 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `first_name`, `last_name`, `phone`, `email`, `created_at`, `start_date`, `end_date`, `event_status`, `description`, `number`) VALUES
-(1, 'Gugulethu', 'Mathe', '+27659453937', 'gugulethumath@gmail.com', '2022-12-10 08:30:33.877876', '0000-00-00', '0000-00-00', NULL, NULL, 3);
+(1, 'Gugulethu', 'Mathe', '+27659453937', 'gugulethumath@gmail.com', '2022-12-10 08:30:33.877876', '0000-00-00', '0000-00-00', NULL, NULL, 3),
+(2, 'Blessing', 'Sibanda', '+27659453937', 'blessingnsibanda@gmail.com', '2022-12-11 07:52:08.723149', '0000-00-00', '0000-00-00', 'Pending', NULL, 3),
+(3, 'Blessing', 'Sibanda', '+27659453937', 'blessingnsibanda@gmail.com', '2022-12-11 07:55:05.122269', '0000-00-00', '0000-00-00', 'Pending', NULL, 5),
+(4, 'Blessing', 'Sibanda', '+27659453937', 'blessingnsibanda@gmail.com', '2022-12-11 08:33:04.418366', '0000-00-00', '0000-00-00', 'Pending', NULL, 5),
+(5, 'Blessing', 'Sibanda', '+27659453937', 'blessingnsibanda@gmail.com', '2022-12-11 08:37:08.380036', '0000-00-00', '0000-00-00', 'Pending', NULL, 5);
 
 -- --------------------------------------------------------
 
@@ -86,7 +90,8 @@ CREATE TABLE `orders` (
   `customer_id` int(11) DEFAULT NULL,
   `order_date` timestamp(6) NULL DEFAULT current_timestamp(6),
   `status` varchar(100) DEFAULT NULL,
-  `staff_id` int(11) DEFAULT NULL
+  `staff_id` int(11) DEFAULT NULL,
+  `package_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -143,21 +148,12 @@ CREATE TABLE `package_products` (
 --
 
 INSERT INTO `package_products` (`id`, `package_id`, `product_id`) VALUES
-(1, 4, 3),
-(2, 4, 7),
-(3, 4, 2),
-(4, 4, 1),
-(5, 4, 2),
-(6, 4, 4),
-(7, 4, 5),
-(8, 4, 6),
-(9, 4, 7),
-(10, 4, 3),
-(11, 2, 1),
-(12, 2, 3),
-(13, 1, 4),
-(14, 1, 4),
-(15, 1, 1);
+(1, 1, 1),
+(2, 1, 3),
+(3, 1, 4),
+(4, 1, 1),
+(5, 1, 2),
+(6, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -183,9 +179,9 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `product_name`, `product_code`, `quantity`, `price`, `is_featured`, `description`, `catergory_id`, `img`) VALUES
 (1, 'Coke', 'CK001', 30, '200.00', NULL, '24 x 1.5 Coke ', 3, '/uploads/1668681118_9cd4e1f0833cda9a0310.jpg'),
-(2, 'Red Bull ', 'RB0001', 20, '1004.00', NULL, 'Redbull six pack', 3, '/uploads/1668690795_f99121539dc1402d5895.jpg'),
 (3, 'Dj', 'Dj01', 1, '4287.00', NULL, 'Best Dj in the city', 5, '/uploads/1668709076_846167bf3789464cdedb.jpg'),
-(4, 'Castle Lager', 'CL001', 12, '200.00', NULL, 'Castle lager ', 7, '/uploads/1668713510_fc3b3d5f5526f954fc23.jpg');
+(4, 'Castle Lager', 'CL001', 12, '200.00', NULL, 'Castle lager ', 7, '/uploads/1668713510_fc3b3d5f5526f954fc23.jpg'),
+(5, 'T shirt', 'RB0001', 1, '100.00', NULL, 'Tshirt', 5, '/uploads/1670747393_234adbd341fd5cfb3bc7.png');
 
 -- --------------------------------------------------------
 
@@ -310,7 +306,7 @@ ALTER TABLE `room_order`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `managers`
@@ -340,13 +336,13 @@ ALTER TABLE `packages`
 -- AUTO_INCREMENT for table `package_products`
 --
 ALTER TABLE `package_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `prod_category`
