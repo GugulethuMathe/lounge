@@ -4,7 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\CustomerModel;
-
+use App\Models\OrderDetailsModel;
+use App\Models\OrderModel;
 
 class Book extends BaseController
 {
@@ -26,6 +27,36 @@ class Book extends BaseController
 		return view('home-front/book', $data);
 	}
 
+	public function saveOrder(){
+		$request = \Config\Services::request();
+		$order = [
+			'customer_id' => $request->getVar('customer_id'),
+			'status' => 'Pending',
+			'package_id' => $request->getVar('package_id')
+		];
+		// save order
+		$orderModel = new OrderModel();
+
+		$orderModel->save($order);
+		$order_id = $orderModel->getInsertID();
+		$products = $request->getVar('products');
+		// Save order details
+		foreach ($products as $product) {
+			$orderDetailsModel = new OrderDetailsModel();
+			$prod = json_decode($product, true);
+
+			$orderDetails = [
+				'order_id' => $order_id,
+				'product_id' => $prod[0],
+				'price' => $prod[1]
+			];
+			$orderDetailsModel->save($orderDetails);
+		}
+		/* Make sure you clear the following session after successful save
+			$_SESSION['customer_id']
+		*/
+		return "Saved order successfully";
+	}
 	public function addCustomer()
 	{
 		
@@ -49,6 +80,7 @@ class Book extends BaseController
 			$model->save($newData);
 			// return $this->response->setJSON($data);
 			$session->setFlashdata("success", "Successfully");
+			$session->set(['customer_id'=>$model->getInsertID()]);
 
 		return redirect()->to('/choose-package');
 		
@@ -58,7 +90,8 @@ class Book extends BaseController
 	{
 		// $model = new CustomerModel();
 		// $data['packages']  = $model->getPackages()->getResult();
-
+		if(!isset($_SESSION['customer_id']))
+			return redirect()->to('/book');
 		return view('home-front/packages_book');
 	}
 
