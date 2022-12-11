@@ -167,7 +167,7 @@ foreach ($customers as $row) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5> <button type="button" class="btn btn-outline-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Add Products</button></h5>
+                    <h5> View Order</h5>
                     <p>Cras mattis consectetur purus sit amet fermentum.
                         Cras justo odio, dapibus ac facilisis in,
                         egestas eget quam. Morbi leo risus, porta ac

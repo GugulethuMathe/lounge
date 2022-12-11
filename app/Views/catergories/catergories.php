@@ -3,7 +3,6 @@
 
     <div class="page-content">
         <div class="container-fluid">
-            <?= $page_title ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">

@@ -2,7 +2,6 @@
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
-            <?= $page_title ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -61,7 +60,7 @@
             $product_name = "'" . $sub_data->product_name . "'";
             $tab_content .= '
                         
-                 <input style type="hidden" id="package_id" class="ids" value="' . $package_id . '" name="package_id">
+                 <input style type="hidden" id="package_id" class="ids" value="" name="package_id">
                 
                 <input type="checkbox" onchange="handleChange(' . $sub_data->id . ',' . $product_name . ')" id="product_id-' . $sub_data->id . '" name="product" value="' . $sub_data->id . '" id="">&nbsp;
                 <label>' . $sub_data->product_name . '</label>
@@ -321,6 +320,7 @@
             $('.ids').each((index, el) => {
                 $(el).val(ID);
             });
+            $('#package_id').val(ID);
 
             $('#exampleModalFullscreenLabel').text(package_name);
         }
