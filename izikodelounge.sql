@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2022 at 09:53 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: Dec 11, 2022 at 11:20 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,7 +50,17 @@ INSERT INTO `customers` (`id`, `first_name`, `last_name`, `phone`, `email`, `cre
 (2, 'Blessing', 'Sibanda', '+27659453937', 'blessingnsibanda@gmail.com', '2022-12-11 07:52:08.723149', '0000-00-00', '0000-00-00', 'Pending', NULL, 3),
 (3, 'Blessing', 'Sibanda', '+27659453937', 'blessingnsibanda@gmail.com', '2022-12-11 07:55:05.122269', '0000-00-00', '0000-00-00', 'Pending', NULL, 5),
 (4, 'Blessing', 'Sibanda', '+27659453937', 'blessingnsibanda@gmail.com', '2022-12-11 08:33:04.418366', '0000-00-00', '0000-00-00', 'Pending', NULL, 5),
-(5, 'Blessing', 'Sibanda', '+27659453937', 'blessingnsibanda@gmail.com', '2022-12-11 08:37:08.380036', '0000-00-00', '0000-00-00', 'Pending', NULL, 5);
+(5, 'Blessing', 'Sibanda', '+27659453937', 'blessingnsibanda@gmail.com', '2022-12-11 08:37:08.380036', '0000-00-00', '0000-00-00', 'Pending', NULL, 5),
+(6, '', '', '', '', '2022-12-11 09:08:19.170765', '0000-00-00', '0000-00-00', 'Pending', NULL, 0),
+(7, '', '', '', '', '2022-12-11 09:48:47.180793', '0000-00-00', '0000-00-00', 'Pending', NULL, 0),
+(8, '', '', '', '', '2022-12-11 09:49:28.026454', '0000-00-00', '0000-00-00', 'Pending', NULL, 0),
+(9, '', '', '', '', '2022-12-11 10:12:21.652330', '0000-00-00', '0000-00-00', 'Pending', NULL, 0),
+(10, '', '', '', '', '2022-12-11 11:03:54.389017', '0000-00-00', '0000-00-00', 'Pending', NULL, 0),
+(11, '', '', '', '', '2022-12-11 11:31:43.323499', '0000-00-00', '0000-00-00', 'Pending', NULL, 0),
+(12, 'Sierra', 'Morin', '+1 (978) 639-1673', 'xiladoma@mailinator.com', '2022-12-11 11:45:52.329458', '0000-00-00', '0000-00-00', 'Pending', NULL, 739),
+(13, 'Sierra', 'Morin', '+1 (978) 639-1673', 'xiladoma@mailinator.com', '2022-12-11 12:36:52.801566', '0000-00-00', '0000-00-00', 'Pending', NULL, 5),
+(14, '', '', '', '', '2022-12-11 17:52:37.808042', '0000-00-00', '0000-00-00', 'Pending', NULL, 0),
+(15, '', '', '', '', '2022-12-11 21:33:26.560610', '0000-00-00', '0000-00-00', 'Pending', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -102,12 +112,10 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `order_details` (
   `id` int(11) NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
   `quantity` varchar(100) DEFAULT NULL,
   `order_id` int(11) DEFAULT NULL,
-  `package_id` int(11) DEFAULT NULL,
-  `price` decimal(15,2) DEFAULT NULL,
-  `type` varchar(45) DEFAULT NULL
+  `product_id` int(11) DEFAULT NULL,
+  `price` double NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -306,7 +314,7 @@ ALTER TABLE `room_order`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `managers`
