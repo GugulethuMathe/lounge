@@ -1,36 +1,55 @@
 <?= $this->include('homeinc/header') ?>
 
 <div id="avail_div" data-elementor-type="wp-page" data-elementor-id="67" class="elementor elementor-67">
-    <section class="elementor-section elementor-top-section elementor-element elementor-element-586cb53 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="586cb53" data-element_type="section">
+    <section
+        class="elementor-section elementor-top-section elementor-element elementor-element-586cb53 elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+        data-id="586cb53" data-element_type="section">
         <div class="elementor-container elementor-column-gap-no">
-            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7c6dcf6" data-id="7c6dcf6" data-element_type="column">
+            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7c6dcf6"
+                data-id="7c6dcf6" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
-                    <div class="elementor-element elementor-element-5b06601 elementor-align-left elementor-widget elementor-widget-home-testimonials-2" data-id="5b06601" data-element_type="widget" data-widget_type="home-testimonials-2.default">
+                    <div class="elementor-element elementor-element-5b06601 elementor-align-left elementor-widget elementor-widget-home-testimonials-2"
+                        data-id="5b06601" data-element_type="widget" data-widget_type="home-testimonials-2.default">
                         <div class="elementor-widget-container">
 
                             <section class="testimonials my-4">
-                                <div class="background bg-img bg-fixed section-padding pb-0" data-background="https://shtheme.com/demosd/thecappa/wp-content/uploads/2022/06/2.jpg" data-overlay-dark="2">
+                                <div class="background bg-img bg-fixed section-padding pb-0"
+                                    data-background="https://shtheme.com/demosd/thecappa/wp-content/uploads/2022/06/2.jpg"
+                                    data-overlay-dark="2">
                                     <div class="container">
                                         <div class="row">
                                             <!-- Booking From -->
                                             <div class="col-md-12">
                                                 <div style="padding-bottom: 20px" class="booking-box">
                                                     <div class="head-box">
-                                                        <h6 class="text-center congrats">Fill in the form below to get startedd. </h6>
-                                                        <h6 class="text-center selext" style="display:none;">Select and customize a package</h6>
+                                                        <h6 class="text-center congrats">Fill in the form below to get
+                                                            startedd. </h6>
+                                                        <h6 class="text-center selext" style="display:none;">Select and
+                                                            customize a package</h6>
                                                         <h4 class="text-center"></h4>
                                                     </div>
                                                     <div class="booking-inner clearfix">
-                                                        <div  class="wpcfe7" id="wpcf7-f1a19-p30-o2" lang="en-US" dir="ltr">
+                                                        <div class="wpcfe7" id="wpcf7-f1a19-p30-o2" lang="en-US"
+                                                            dir="ltr">
                                                             <div class="screen-reader-response"></div>
-                                                            <form method="POST" action="<?php echo base_url() ?>/book/addCustomer"  class="wpcf7-foarm">
+                                                            <form method="POST"
+                                                                action="<?php echo base_url() ?>/book/addCustomer"
+                                                                class="wpcf7-foarm">
                                                                 <div class="form1 clearfix">
                                                                     <div class="row personal">
                                                                         <div class="col-md-6">
                                                                             <div class="input1_wrapper">
                                                                                 <label>First Name</label>
                                                                                 <div class="input1_inner">
-                                                                                    <span class="wpcf7-form-control-wrap"><input type="text" name="first_name" id="first_name" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input" aria-required="true" aria-invalid="false" placeholder="First Name"></span>
+                                                                                    <span
+                                                                                        class="wpcf7-form-control-wrap"><input
+                                                                                            type="text"
+                                                                                            name="first_name"
+                                                                                            id="first_name" size="40"
+                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input"
+                                                                                            aria-required="true"
+                                                                                            aria-invalid="false"
+                                                                                            placeholder="First Name"></span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -38,7 +57,14 @@
                                                                             <div class="input1_wrapper">
                                                                                 <label>Last Name</label>
                                                                                 <div class="input1_inner">
-                                                                                    <span class="wpcf7-form-control-wrap"><input type="text" name="last_name" id="last_name" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input" aria-required="true" aria-invalid="false" placeholder="Last Name"></span>
+                                                                                    <span
+                                                                                        class="wpcf7-form-control-wrap"><input
+                                                                                            type="text" name="last_name"
+                                                                                            id="last_name" size="40"
+                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input"
+                                                                                            aria-required="true"
+                                                                                            aria-invalid="false"
+                                                                                            placeholder="Last Name"></span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -46,7 +72,14 @@
                                                                             <div class="input1_wrapper">
                                                                                 <label>Email</label>
                                                                                 <div class="input1_inner">
-                                                                                    <span class="wpcf7-form-control-wrap"><input type="email" name="email" id="email" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input" aria-required="true" aria-invalid="false" placeholder="Email"></span>
+                                                                                    <span
+                                                                                        class="wpcf7-form-control-wrap"><input
+                                                                                            type="email" name="email"
+                                                                                            id="email" size="40"
+                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input"
+                                                                                            aria-required="true"
+                                                                                            aria-invalid="false"
+                                                                                            placeholder="Email"></span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -54,7 +87,14 @@
                                                                             <div class="input1_wrapper">
                                                                                 <label>Phone</label>
                                                                                 <div class="input1_inner">
-                                                                                    <span class="wpcf7-form-control-wrap"><input type="text" name="phone" id="phone" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input" aria-required="true" aria-invalid="false" placeholder="Phone"></span>
+                                                                                    <span
+                                                                                        class="wpcf7-form-control-wrap"><input
+                                                                                            type="text" name="phone"
+                                                                                            id="phone" size="40"
+                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input"
+                                                                                            aria-required="true"
+                                                                                            aria-invalid="false"
+                                                                                            placeholder="Phone"></span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -64,7 +104,16 @@
                                                                             <div class="input1_wrapper">
                                                                                 <label>Check in</label>
                                                                                 <div class="input1_inner">
-                                                                                    <span class="wpcf7-form-control-wrap check-in"><input type="datetime" name="start_date" id="start_date" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input datepicker" aria-required="true" aria-invalid="false" placeholder="Check in"></span>
+                                                                                    <span
+                                                                                        class="wpcf7-form-control-wrap check-in"><input
+                                                                                            type="datetime"
+                                                                                            name="start_date"
+                                                                                            id="start_date" size="40"
+                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input datepicker"
+                                                                                            aria-required="true"
+                                                                                            aria-invalid="false"
+                                                                                            autocomplete="off"
+                                                                                            placeholder="Check in"></span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -72,7 +121,16 @@
                                                                             <div class="input1_wrapper">
                                                                                 <label>Check out</label>
                                                                                 <div class="input1_inner">
-                                                                                    <span class="wpcf7-form-control-wrap check-out"><input type="datetime" name="end_date" id="end_date" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input datepicker" aria-required="true" aria-invalid="false" placeholder="Check out"></span>
+                                                                                    <span
+                                                                                        class="wpcf7-form-control-wrap check-out"><input
+                                                                                            type="datetime"
+                                                                                            name="end_date"
+                                                                                            id="end_date" size="40"
+                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input datepicker"
+                                                                                            aria-required="true"
+                                                                                            aria-invalid="false"
+                                                                                            autocomplete="off"
+                                                                                            placeholder="Check out"></span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -82,12 +140,21 @@
                                                                             <div class="input1_wrapper">
                                                                                 <label>Number of people</label>
                                                                                 <div class="input1_inner">
-                                                                                    <span class="wpcf7-form-control-wrap"><input type="text" name="number" id="number" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input" aria-required="true" aria-invalid="false" placeholder="Number of people"></span>
+                                                                                    <span
+                                                                                        class="wpcf7-form-control-wrap"><input
+                                                                                            type="text" name="number"
+                                                                                            id="number" size="40"
+                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control input"
+                                                                                            aria-required="true"
+                                                                                            aria-invalid="false"
+                                                                                            placeholder="Number of people"></span>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <br>
-                                                                        <input type="submit" value="Next" class="wpcf7-form-control wpcf7-submit btn-form1-submit mt-15"><span class="ajax-loader"></span>
+                                                                        <input type="submit" value="Next"
+                                                                            class="wpcf7-form-control wpcf7-submit btn-form1-submit mt-15"><span
+                                                                            class="ajax-loader"></span>
                                                                     </div>
                                                             </form>
 
@@ -105,14 +172,51 @@
         </div>
     </section>
 </div>
-
-
+<?php
+    $db = \Config\Database::connect();
+    $query = $db->query('SELECT MIN(start_date) AS start_date, MAX(end_date) AS end_date FROM customers');
+    $results = $query->getResult();
+?>
 <?= $this->include('homeinc/footer') ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/vader/jquery-ui.css" rel="stylesheet" />
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#packagesm').hide();
         $('.book').hide();
-        displayCustomers();
+        // displayCustomers();
+
+        if (parseInt('<?= count($results)?>') <= 0)
+            return;
+        //This array containes all the disabled array
+        const listDate = [];
+        const startDate = '<?= $results[0]->start_date?>';
+        const endDate = '<?= $results[0]->end_date?>';
+        const dateMove = new Date(startDate);
+        let strDate = startDate;
+
+        while (strDate < endDate) {
+            strDate = dateMove.toISOString().slice(0, 10);
+            listDate.push(strDate);
+            dateMove.setDate(dateMove.getDate() + 1);
+        };
+        $('#start_date').datepicker({
+
+            beforeShowDay: function (date) {
+                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [listDate.indexOf(string) == -1]
+            },
+            minDate: '0'
+        });
+        $('#end_date').datepicker({
+
+            beforeShowDay: function (date) {
+                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [listDate.indexOf(string) == -1]
+            },
+            minDate: '0'
+        });
     });
 
     function showPackage() {
@@ -138,7 +242,7 @@
         $('.room').show();
     }
 
-    $('#customers-form').on('submit', function(e) {
+    $('#customers-form').on('submit', function (e) {
         e.preventDefault();
         var first_name = $("#first_name").val();
         var last_name = $("#last_name").val();
@@ -160,7 +264,7 @@
             },
 
             // dataType: "JSON",
-            success: function(response) {
+            success: function (response) {
                 showBooking();
             }
         });

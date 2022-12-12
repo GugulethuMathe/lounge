@@ -73,11 +73,11 @@ class Book extends BaseController
 				'email' => $request->getVar('email'),
 				'phone' => $request->getVar('phone'),
 				'event_status' => 'Pending',
-				'start_date' => $request->getVar('start_date'),
-				'end_date' => $request->getVar('end_date'),
+				'start_date' => date("Y-m-d", strtotime($request->getVar('start_date'))),
+				'end_date' => date("Y-m-d", strtotime($request->getVar('end_date'))),
 				'number' => $request->getVar('number')
 			];
-			
+			print_r($newData);
 			$model->save($newData);
 			// return $this->response->setJSON($data);
 			$session->setFlashdata("success", "Successfully");
