@@ -83,8 +83,6 @@
                     </div><!-- end card -->
                 </div><!-- end col-->
 
-
-
                 <div class="col-xl-3 col-md-6">
 
                 </div><!-- end col -->
@@ -111,7 +109,10 @@
                                 <tbody>
 
                                     <?php
-                                    foreach ($customers as $row) {
+                                    $db = \Config\Database::connect();
+                                    $query = $db->query('SELECT * FROM orders O LEFT JOIN customers C ON O.customer_id=C.id');
+                                    $results = $query->getResult();
+                                    foreach ($results as $row) {
                                     ?>
                                         <tr>
                                             <td><?= $row->first_name; ?> <?= $row->last_name; ?></td>
@@ -123,7 +124,7 @@
                                             <td>
 
 
-                                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-id="<?= $row->id; ?>" data-bs-target="#exampleModalFullscreen"><i class="fa fa-eye">View order</i></button>
+                                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-id="<?= $row->id; ?>" data-bs-target="#exampleModalFullscreen-<?=$row->id ?>"><i class="fa fa-eye">View order</i></button>
                                                 <a href="" class="btn btn-sm btn-outline-success"><i class="fa fa-check">Accept
                                                     </i></a>
                                                 <a href="" class="btn btn-sm btn-danger"><i class="fa fa-mail"></i>Decline</a>
@@ -154,12 +155,15 @@
 <!-- END layout-wrapper -->
 
 <?php
-foreach ($customers as $row) {
+       $db = \Config\Database::connect();
+       $query = $db->query('SELECT * FROM orders O LEFT JOIN customers C ON O.customer_id=C.id');
+       $results = $query->getResult();
+foreach ($results as $row) {
 ?>
     
     </div>
       <!-- Details modal -->
-      <div id="exampleModalFullscreen" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+      <div id="exampleModalFullscreen-<?=$row->id ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
@@ -167,7 +171,7 @@ foreach ($customers as $row) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5> View Order</h5>
+                    <h5> View Order <?=$row->id ?></h5>
                     <p>Cras mattis consectetur purus sit amet fermentum.
                         Cras justo odio, dapibus ac facilisis in,
                         egestas eget quam. Morbi leo risus, porta ac

@@ -16,7 +16,8 @@ class OrderModel extends Model
 	protected $protectFields        = true;
 	protected $allowedFields        = [
 		'customer_id',
-		'product_id'
+		'product_id',
+		'package_id'
 	];
 
 	// Dates
