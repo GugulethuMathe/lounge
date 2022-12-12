@@ -174,8 +174,28 @@
 </div>
 <?php
     $db = \Config\Database::connect();
-    $query = $db->query('SELECT MIN(start_date) AS start_date, MAX(end_date) AS end_date FROM customers');
+    $query = $db->query('SELECT * FROM customers WHERE end_date >= CURDATE()');
+    $listDates = [];
     $results = $query->getResult();
+    foreach ($results as $value) {
+        $start_date = $value->start_date;
+        if($value->start_date < date("Y-m-d")){
+            $start_date = date("Y-m-d");
+        }
+        $listDates = array_unique(array_merge(date_range($start_date, $value->end_date),$listDates ), SORT_REGULAR);
+    }
+    function date_range($first, $last, $step = '+1 day', $output_format = 'Y-m-d' ) {
+        $current = strtotime($first);
+        $last = strtotime($last);
+    
+        while( $current <= $last ) {
+    
+            $dates[] = date($output_format, $current);
+            $current = strtotime($step, $current);
+        }
+    
+        return $dates;
+    }
 ?>
 <?= $this->include('homeinc/footer') ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -187,20 +207,8 @@
         $('.book').hide();
         // displayCustomers();
 
-        if (parseInt('<?= count($results)?>') <= 0)
-            return;
         //This array containes all the disabled array
-        const listDate = [];
-        const startDate = '<?= $results[0]->start_date?>';
-        const endDate = '<?= $results[0]->end_date?>';
-        const dateMove = new Date(startDate);
-        let strDate = startDate;
-
-        while (strDate < endDate) {
-            strDate = dateMove.toISOString().slice(0, 10);
-            listDate.push(strDate);
-            dateMove.setDate(dateMove.getDate() + 1);
-        };
+        const listDate = JSON.parse('<?= json_encode($listDates) ?>');
         $('#start_date').datepicker({
 
             beforeShowDay: function (date) {
