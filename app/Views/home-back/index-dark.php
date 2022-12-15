@@ -124,9 +124,9 @@
                                             <td>
 
 
-                                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-id="<?= $row->id; ?>" data-bs-target="#exampleModalFullscreen-<?=$row->id ?>"><i class="fa fa-eye">View order</i></button>
-                                                <a href="" class="btn btn-sm btn-outline-success"><i class="fa fa-check">Accept
-                                                    </i></a>
+                                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-id="<?= $row->id; ?>" data-bs-target="#exampleModalFullscreen-<?= $row->id ?>"><i class="fa fa-eye">View order</i></button>
+                                                <button type="button" class="btn btn-outline-success btn-sm waves-effect waves-light" data-bs-toggle="modal" data-id="<?= $row->id; ?>" data-bs-target="#exampleModalAccept-<?= $row->id ?>"><i class="fa fa-eye">Accept order</i></button>
+
                                                 <a href="" class="btn btn-sm btn-danger"><i class="fa fa-mail"></i>Decline</a>
                                             </td>
                                         </tr>
@@ -148,68 +148,109 @@
     <!-- End Page-content -->
 
     <?= $this->include('partials/footer') ?>
-</div>
-<!-- end main content-->
 
-</div>
-<!-- END layout-wrapper -->
+    <?php
+    $db = \Config\Database::connect();
+    $query = $db->query('SELECT * FROM orders O LEFT JOIN customers C ON O.customer_id=C.id');
+    $results = $query->getResult();
+    foreach ($results as $row) {
+    ?>
 
-<?php
-       $db = \Config\Database::connect();
-       $query = $db->query('SELECT * FROM orders O LEFT JOIN customers C ON O.customer_id=C.id');
-       $results = $query->getResult();
-foreach ($results as $row) {
-?>
-    
-    </div>
-      <!-- Details modal -->
-      <div id="exampleModalFullscreen-<?=$row->id ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalFullscreenLabel"><?= $row->first_name; ?></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        <!-- Details modal -->
+        <div id="exampleModalFullscreen-<?= $row->id ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalFullscreenLabel">Order Number: <?= $row->id; ?></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Customer Details</h5>
+                        <hr>
+                        <h6> Customer Name: <?= $row->first_name . " " . $row->last_name  ?>,</h6>
+                        <h6> Phone Number: <?= $row->phone; ?>,</h6>
+                        <h6> Email: <?= $row->email; ?>,</h6>
+                        <h6>Check In: <?= $row->start_date; ?>,</h6>
+                        <h6> Check Out: <?= $row->end_date; ?>,</h6>
+
+
+
+                        <?php $db = \Config\Database::connect();
+                        $query = $db->query("SELECT * FROM packages WHERE id='$row->package_id'");
+                        $resultspack = $query->getResult();
+                        foreach ($resultspack as $package) {
+                        ?>
+                            <h6>Selected Package: <?= $package->name; ?></h6>
+                        <?php } ?>
+
+                        <h5>Selected Products</h5>
+                        <div class="card-body">
+
+                            <?php
+                            $db = \Config\Database::connect();
+                            $query = $db->query("SELECT * FROM order_details WHERE order_id='$row->id'");
+                            $results_order = $query->getResult();
+                            foreach ($results_order as $rowpro) {
+                                $product_id = $rowpro->product_id;
+
+                                $query = $db->query("SELECT * FROM products WHERE id='$product_id'");
+                                $results_pro = $query->getResult();
+                                foreach ($results_pro as $row_pro) {
+                            ?>
+
+                                    <p><?= $row_pro->product_name; ?></p>
+
+                        </div>
+
+                <?php }
+                            } ?>
+
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+
+        <!-- Accept Order Modal -->
+        <div id="exampleModalAccept-<?= $row->id ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalFullscreenLabel">Customer Name: <?= $row->first_name . " " . $row->last_name  ?></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<?= base_url() ?>/book/approveOrder" method="POST">
+                            <p>By Accepting this Order you are automatically closing the lounge on the dates below. You can adjust the dates as you see fit.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="example-date-input" class="form-label">Check In Date</label>
+                                    <input class="form-control" type="date" name="start_date" value="<?= $row->start_date ?>" id="example-date-input">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="example-date-input" class="form-label">Check Out Date</label>
+                                    <input class="form-control" type="date" name="end_date" value="<?= $row->end_date ?>" id="example-date-input">
+                                    <input class="form-control" name="customer_id" type="hidden" value="<?= $row->id ?>" id="customer_id">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success waves-effect waves-light">Comfirm Approval</button>
+                        <button type="button" class="btn btn-outline secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+
+
                 </div>
-                <div class="modal-body">
-                    <h5> View Order <?=$row->id ?></h5>
-                    <p>Cras mattis consectetur purus sit amet fermentum.
-                        Cras justo odio, dapibus ac facilisis in,
-                        egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.</p>
-                    <p>Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Vivamus sagittis lacus vel
-                        augue laoreet rutrum faucibus dolor auctor.</p>
-                    <p>Aenean lacinia bibendum nulla sed consectetur.
-                        Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor
-                        fringilla.</p>
-                    <p>Cras mattis consectetur purus sit amet fermentum.
-                        Cras justo odio, dapibus ac facilisis in,
-                        egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.</p>
-                    <p>Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Vivamus sagittis lacus vel
-                        augue laoreet rutrum faucibus dolor auctor.</p>
-                    <p>Aenean lacinia bibendum nulla sed consectetur.
-                        Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor
-                        fringilla.</p>
-                    <p>Cras mattis consectetur purus sit amet fermentum.
-                        Cras justo odio, dapibus ac facilisis in,
-                        egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
-                </div>
+
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-<?php  } ?>
+</div><!-- /.modal -->
+<?php } ?>
 <?= $this->include('partials/right-sidebar') ?>
 
 <?= $this->include('partials/vendor-scripts') ?>

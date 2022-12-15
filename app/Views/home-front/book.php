@@ -22,10 +22,10 @@
                                             <div class="col-md-12">
                                                 <div style="padding-bottom: 20px" class="booking-box">
                                                     <div class="head-box">
-                                                        <h6 class="text-center congrats">Fill in the form below to get
-                                                            startedd. </h6>
-                                                        <h6 class="text-center selext" style="display:none;">Select and
-                                                            customize a package</h6>
+                                                        <h6  class="text-center congrats">Fill in the form below to get
+                                                            started. </h6>
+                                                            <hr style="color: black;">
+                                                        <p style="background-color:#aa8453; padding:10px;" class="text-center text-light selext">NB: The Booked dates will be disabled on Check In and Check Out dates</p>
                                                         <h4 class="text-center"></h4>
                                                     </div>
                                                     <div class="booking-inner clearfix">
@@ -99,6 +99,7 @@
                                                                             </div>
                                                                         </div>
                                                                         <br>
+                                                                        <input class="form-control" name="event_status" type="hidden" value="Lead" id="customer_id">
 
                                                                         <div class="col-md-6">
                                                                             <div class="input1_wrapper">
@@ -174,7 +175,7 @@
 </div>
 <?php
     $db = \Config\Database::connect();
-    $query = $db->query('SELECT * FROM customers WHERE end_date >= CURDATE()');
+    $query = $db->query('SELECT * FROM customers WHERE 	event_status="Approved" and end_date >= CURDATE()');
     $listDates = [];
     $results = $query->getResult();
     foreach ($results as $value) {

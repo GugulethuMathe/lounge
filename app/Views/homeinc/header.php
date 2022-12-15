@@ -410,10 +410,35 @@
             border-radius: 0;
             padding: 0;
         }
+
         .modal-header img.logo-img {
-    /* padding: 10px; */
-    width: 100px;
-}
+            /* padding: 10px; */
+            width: 100px;
+        }
+
+        .input1_inner input {
+            display: block;
+            width: 100%;
+            margin: 10px;
+            font-size: 15px;
+            color: #222;
+            padding: 20px 40px 20px 20px;
+            background: #fff;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .elementor img {
+            height: auto;
+            width: 306px;
+            max-width: 100%;
+            border: none;
+            border-radius: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
         /* div#exampleModal {
     z-index: 10;
 } */
