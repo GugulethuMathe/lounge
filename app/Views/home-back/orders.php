@@ -8,91 +8,11 @@
     <div class="page-content">
         <div class="container-fluid">
 
-            <?= $page_title ?>
-
-            <div class="row">
-                <div class="col-xl-3 col-md-6">
-                    <!-- card -->
-                    <div class="card card-h-100">
-                        <!-- card body -->
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Lounge Status</span>
-                                    <h4 class="mb-3">
-                                        <i data-feather="door"></i>
-                                        <i class="fa fa-2x text-success fa-door-open"></i>
-                                    </h4>
-                                </div>
-
-                            </div>
-                            <div class="text-nowrap">
-                                <span class="badge bg-soft-success text-success">The lounge open for booking</span>
-
-                            </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
-
-                <div class="col-xl-3 col-md-6">
-                    <!-- card -->
-                    <div class="card card-h-100">
-                        <!-- card body -->
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Orders</span>
-                                    <h4 class="mb-3">
-                                        <span class="counter-value" data-target="8">0</span>
-                                    </h4>
-                                </div>
-
-                                <div class="col-6">
-                                    <div id="mini-chart1" data-colors='["#5156be"]' class="apex-charts mb-2"></div>
-                                </div>
-                            </div>
-                            <div class="text-nowrap">
-                                <span class="badge bg-soft-success text-warning">People who ordered</span>
-                                <span class="ms-1 text-muted font-size-13"></span>
-                            </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
-
-                <div class="col-xl-3 col-md-6">
-                    <!-- card -->
-                    <div class="card card-h-100">
-                        <!-- card body -->
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Leads</span>
-                                    <h4 class="mb-3">
-                                        <span class="counter-value" data-target="16">0</span>
-                                    </h4>
-                                </div>
-                                <div class="col-6">
-                                    <div id="mini-chart2" data-colors='["#5156be"]' class="apex-charts mb-2"></div>
-                                </div>
-                            </div>
-                            <div class="text-nowrap">
-                                <span class="badge bg-soft-danger text-warning">People who might be interested</span>
-                                <span class="ms-1 text-muted font-size-13"></span>
-                            </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
-                </div><!-- end col-->
-
-                <div class="col-xl-3 col-md-6">
-
-                </div><!-- end col -->
-            </div><!-- end row-->
-
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Latest Orders</h4>
+                            <h4 class="card-title">All Orders</h4>
                         </div>
                         <div class="card-body">
                             <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
@@ -103,6 +23,7 @@
                                         <th>Customer's Email</th>
                                         <th>Check In</th>
                                         <th>Check Out</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -110,7 +31,7 @@
 
                                     <?php
                                     $db = \Config\Database::connect();
-                                    $query = $db->query("SELECT * FROM customers WHERE event_status ='Pending'");
+                                    $query = $db->query("SELECT * FROM customers WHERE  event_status ='Approved'");
                                     $results = $query->getResult();
                                     foreach ($results as $row) {
                                     ?>
@@ -120,14 +41,11 @@
                                             <td><?= $row->email; ?></td>
                                             <td><?= $row->start_date; ?></td>
                                             <td><?= $row->end_date; ?></td>
-
+                                            <td><?= $row->event_status; ?></td>
                                             <td>
+                                            <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-id="<?= $row->id; ?>" data-bs-target="#exampleModalFullscreen-<?= $row->id ?>"><i class="fa fa-eye">View order</i></button>
 
-
-                                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" data-id="<?= $row->id; ?>" data-bs-target="#exampleModalFullscreen-<?= $row->id ?>"><i class="fa fa-eye">View order</i></button>
-                                                <button type="button" class="btn btn-outline-success btn-sm waves-effect waves-light" data-bs-toggle="modal" data-id="<?= $row->id; ?>" data-bs-target="#exampleModalAccept-<?= $row->id ?>"><i class="fa fa-eye">Accept order</i></button>
-
-                                                <a href="" class="btn btn-sm btn-danger"><i class="fa fa-mail"></i>Decline</a>
+                                            <a href="<?php echo base_url() ?>/book/checkCustomerOut?customer_id=<?php echo $row->id; ?>" class="btn btn-sm btn-danger"><i class="fa fa-mail"></i>Check Out</a>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -150,10 +68,70 @@
     <?= $this->include('partials/footer') ?>
 
     <?php
+    $db = \Config\Database::connect();
     $query = $db->query('SELECT * FROM orders O LEFT JOIN customers C ON O.customer_id=C.id');
     $results = $query->getResult();
     foreach ($results as $row) {
     ?>
+
+
+        <!-- Details modal -->
+        <div id="exampleModalFullscreen-<?= $row->id ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalFullscreenLabel">Order Number: <?= $row->id; ?></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Customer Details</h5>
+                        <hr>
+                        <h6> Customer Name: <?= $row->first_name . " " . $row->last_name  ?>,</h6>
+                        <h6> Phone Number: <?= $row->phone; ?>,</h6>
+                        <h6> Email: <?= $row->email; ?>,</h6>
+                        <h6>Check In: <?= $row->start_date; ?>,</h6>
+                        <h6> Check Out: <?= $row->end_date; ?>,</h6>
+
+
+
+                        <?php $db = \Config\Database::connect();
+                        $query = $db->query("SELECT * FROM packages WHERE id='$row->package_id'");
+                        $resultspack = $query->getResult();
+                        foreach ($resultspack as $package) {
+                        ?>
+                            <h6>Selected Package: <?= $package->name; ?></h6>
+                        <?php } ?>
+
+                        <h5>Selected Products</h5>
+                        <div class="card-body">
+
+                            <?php
+                            $db = \Config\Database::connect();
+                            $query = $db->query("SELECT * FROM order_details WHERE order_id='$row->id'");
+                            $results_order = $query->getResult();
+                            foreach ($results_order as $rowpro) {
+                                $product_id = $rowpro->product_id;
+
+                                $query = $db->query("SELECT * FROM products WHERE id='$product_id'");
+                                $results_pro = $query->getResult();
+                                foreach ($results_pro as $row_pro) {
+                            ?>
+
+                                    <p><?= $row_pro->product_name; ?></p>
+
+                        </div>
+
+                <?php }
+                            } ?>
+
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
 
         <!-- Accept Order Modal -->
         <div id="exampleModalAccept-<?= $row->id ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
@@ -194,7 +172,9 @@
 <?= $this->include('partials/right-sidebar') ?>
 
 <?= $this->include('partials/vendor-scripts') ?>
+<script>
 
+</script>
 <!-- Required datatable js -->
 <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>

@@ -11,22 +11,23 @@
                 <li>
                     <a href="<?php echo base_url(); ?>/dashboard" class="has-arrow">
                         <i data-feather="home"></i>
-                        <span data-key="t-dashboard"><?= lang('Files.Dashboard') ?></span>
+                        <span data-key="t-dashboard">New Orders</span>
                     </a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url(); ?>/products" class="has-arrow">
-                        <i data-feather="shopping-cart"></i>
-                        <span data-key="t-products">Orders</span>
-                    </a>
-
                 </li>
                 <li>
                     <a href="<?php echo base_url(); ?>/leads" class="has-arrow">
                         <i data-feather="shopping-cart"></i>
-                        <span data-key="t-products">Leads</span>
+                        <span data-key="t-leads">Leads</span>
                     </a>
                 </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>/orders" class="has-arrow">
+                        <i data-feather="shopping-cart"></i>
+                        <span data-key="t-orders">Approved Orders</span>
+                    </a>
+
+                </li>
+              
                 <li>
                     <a href="<?php echo base_url(); ?>/administrators" class="has-arrow">
                     <i data-feather="users"></i>

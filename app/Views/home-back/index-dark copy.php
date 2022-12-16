@@ -110,7 +110,7 @@
 
                                     <?php
                                     $db = \Config\Database::connect();
-                                    $query = $db->query("SELECT * FROM customers WHERE event_status ='Pending'");
+                                    $query = $db->query('SELECT * FROM orders O LEFT JOIN customers C ON O.customer_id=C.id');
                                     $results = $query->getResult();
                                     foreach ($results as $row) {
                                     ?>
@@ -150,45 +150,111 @@
     <?= $this->include('partials/footer') ?>
 
     <?php
+    $db = \Config\Database::connect();
     $query = $db->query('SELECT * FROM orders O LEFT JOIN customers C ON O.customer_id=C.id');
     $results = $query->getResult();
     foreach ($results as $row) {
     ?>
 
-        <!-- Accept Order Modal -->
-        <div id="exampleModalAccept-<?= $row->id ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Details modal -->
+        <div id="exampleModalFullscreen-<?= $row->id ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalFullscreenLabel">Customer Name: <?= $row->first_name . " " . $row->last_name  ?></h5>
+                        <h5 class="modal-title" id="exampleModalFullscreenLabel">Order Number: <?= $row->id; ?></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="<?= base_url() ?>/book/approveOrder" method="POST">
-                            <p>By Accepting this Order you are automatically closing the lounge on the dates below. You can adjust the dates as you see fit.</p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="example-date-input" class="form-label">Check In Date</label>
-                                    <input class="form-control" type="date" name="start_date" value="<?= $row->start_date ?>" id="example-date-input">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="example-date-input" class="form-label">Check Out Date</label>
-                                    <input class="form-control" type="date" name="end_date" value="<?= $row->end_date ?>" id="example-date-input">
-                                    <input class="form-control" name="customer_id" type="hidden" value="<?= $row->id ?>" id="customer_id">
-                                </div>
-                            </div>
+                        <h5>Customer Details</h5>
+                        <hr>
+                        <h6> Customer Name: <?= $row->first_name . " " . $row->last_name  ?>,</h6>
+                        <h6> Phone Number: <?= $row->phone; ?>,</h6>
+                        <h6> Email: <?= $row->email; ?>,</h6>
+                        <h6>Check In: <?= $row->start_date; ?>,</h6>
+                        <h6> Check Out: <?= $row->end_date; ?>,</h6>
+
+
+
+                        <?php $db = \Config\Database::connect();
+                        $query = $db->query("SELECT * FROM packages WHERE id='$row->package_id'");
+                        $resultspack = $query->getResult();
+                        foreach ($resultspack as $package) {
+                        ?>
+                            <h6>Selected Package: <?= $package->name; ?></h6>
+                        <?php } ?>
+
+                        <h5>Selected Products</h5>
+                        <div class="card-body">
+
+                            <?php
+                            $db = \Config\Database::connect();
+                            $query = $db->query("SELECT * FROM order_details WHERE order_id='$row->id'");
+                            $results_order = $query->getResult();
+                            foreach ($results_order as $rowpro) {
+                                $product_id = $rowpro->product_id;
+
+                                $query = $db->query("SELECT * FROM products WHERE id='$product_id'");
+                                $results_pro = $query->getResult();
+                                foreach ($results_pro as $row_pro) {
+                            ?>
+
+                                    <p><?= $row_pro->product_name; ?></p>
+
+                        </div>
+
+            <?php }
+                            }
+                         ?>
+
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-success waves-effect waves-light">Comfirm Approval</button>
-                        <button type="button" class="btn btn-outline secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                        </form>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+        <?php
+    }
+        $query = $db->query('SELECT * FROM orders O LEFT JOIN customers C ON O.customer_id=C.id');
+        $results = $query->getResult();
+        foreach ($results as $row) {
+        ?>
+
+            <!-- Accept Order Modal -->
+            <div id="exampleModalAccept-<?= $row->id ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalFullscreenLabel">Customer Name: <?= $row->first_name . " " . $row->last_name  ?></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="<?= base_url() ?>/book/approveOrder" method="POST">
+                                <p>By Accepting this Order you are automatically closing the lounge on the dates below. You can adjust the dates as you see fit.</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="example-date-input" class="form-label">Check In Date</label>
+                                        <input class="form-control" type="date" name="start_date" value="<?= $row->start_date ?>" id="example-date-input">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="example-date-input" class="form-label">Check Out Date</label>
+                                        <input class="form-control" type="date" name="end_date" value="<?= $row->end_date ?>" id="example-date-input">
+                                        <input class="form-control" name="customer_id" type="hidden" value="<?= $row->id ?>" id="customer_id">
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success waves-effect waves-light">Comfirm Approval</button>
+                            <button type="button" class="btn btn-outline secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                            </form>
+                        </div>
+
+
                     </div>
 
-
-                </div>
-
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <?php } ?>
 <?= $this->include('partials/right-sidebar') ?>

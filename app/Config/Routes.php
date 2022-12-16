@@ -39,6 +39,8 @@ $routes->get('/signin', 'Home::login');
 $routes->post('/login', 'Login::auth');
 $routes->get('/logout', 'Login::logout');
 $routes->get('/dashboard', 'Home::dashboard');
+$routes->get('/leads', 'Home::leads');
+$routes->get('/orders', 'Home::orders');
 
 //Products
 $routes->get('/products', 'Product::index');
@@ -50,6 +52,7 @@ $routes->get('/package-products', 'Package/addPackageProduct');
 
 //Book 
 $routes->get('/choose-products', 'Book::book_step_two');
+$routes->get('/thank-you', 'Book::bookThankyou');
 $routes->get('/choose-package', 'Book::select_package');
 
 //Managers

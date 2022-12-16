@@ -65,13 +65,36 @@ class CustomerModel extends Model
 
 		return $data;
 	}
-	public function getCustomers()
-    {
-        $builder = $this->db->table('customers');
-        $builder->select('*');
+	// public function getCustomers()
+    // {
+    //     $builder = $this->db->table('customers');
+    //     $builder->select('*');
+    //     $builder->where('event_status','Pending' );
        
-        return $builder->get();
-    }
+    //     return $builder->get();
+    // }
+	public function getCustomers() {
+        $sql = "SELECT * FROM customers WHERE event_status ='Pending'";
+        $query =  $this->db->query($sql);
+  
+        return $query->getRow();
+      }
+
+	  public function getAllOrders() {
+        $sql = "SELECT * FROM customers WHERE event_status ='Pending' AND event_status ='Approved'";
+        $query =  $this->db->query($sql);
+  
+        return $query->getRow();
+      }
+
+
+	  public function getLeads() {
+        $sql = "SELECT * FROM customers WHERE event_status ='Leads'";
+        $query =  $this->db->query($sql);
+  
+        return $query->getRow();
+      }
+
 	public function deleteCustomer($id)
     {
         $query = $this->db->table('customers')->delete(array('id ' => $id));

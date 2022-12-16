@@ -26,7 +26,11 @@ class Book extends BaseController
 
         return view('home-front/book', $data);
     }
+    public function bookThankyou()
+    {
 
+        return view('home-front/thank-you');
+    }
     public function saveOrder()
     {
         $request = \Config\Services::request();
@@ -57,7 +61,7 @@ class Book extends BaseController
         $_SESSION['customer_id']
          */
 		$this->updateEventStatus();
-        return "Saved order successfully";
+        return redirect()->to('/thank-you');
     }
 
     public function addCustomer()
@@ -88,6 +92,7 @@ class Book extends BaseController
         return redirect()->to('/choose-package');
 
     }
+
     public function approveOrder()
     {
         $data = [];
@@ -106,6 +111,25 @@ class Book extends BaseController
         $session->setFlashdata("success_update", "Order approved Successfully");
         // return redirect()->to('/apartments');
     }
+    public function checkCustomerOut()
+    {
+        $data = [];
+        $model = new CustomerModel();
+
+        $request = \Config\Services::request();
+        $session = session();
+		$id = $request->getVar('customer_id');
+        $data = array(
+            'event_status' => 'Check_out',
+         
+
+        );
+        $model->update($id, $data);
+        $session->setFlashdata("success_update", "Order approved Successfully");
+        // return redirect()->to('/apartments');
+    }
+
+
 	public function updateEventStatus()
     {
         $data = [];
@@ -121,6 +145,7 @@ class Book extends BaseController
        
         // return redirect()->to('/apartments');
     }
+    
     public function select_package()
     {
         // $model = new CustomerModel();

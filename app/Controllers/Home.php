@@ -29,9 +29,33 @@ class Home extends BaseController
 			'page_title' => view('partials/page-title', ['title' => 'Dashboard', 'li_1' => 'Iziko de Lounge', 'li_2' => 'Dashboard'])
 		];
 		$model = new CustomerModel();
-        $data['customers']  = $model->getCustomers()->getResult();
+        $data['customers']  = $model->getCustomers();
 		
 		return view('home-back/index-dark', $data);
+	}
+	public function orders()
+	{
+		
+		$data = [
+			'title_meta' => view('partials/title-meta', ['title' => 'Orders']),
+			'page_title' => view('partials/page-title', ['title' => 'Orders', 'li_1' => 'Iziko de Lounge', 'li_2' => 'Orders'])
+		];
+		$model = new CustomerModel();
+        $data['customers']  = $model->getAllOrders();
+		
+		return view('home-back/orders', $data);
+	}
+	public function leads()
+	{
+		
+		$data = [
+			'title_meta' => view('partials/title-meta', ['title' => 'Leads']),
+			'page_title' => view('partials/page-title', ['title' => 'Leads', 'li_1' => 'Iziko de Lounge', 'li_2' => 'Leads'])
+		];
+		$model = new CustomerModel();
+        $data['leads']  = $model->getLeads();
+		
+		return view('home-back/leads', $data);
 	}
 
 	public function show_index_dark()
