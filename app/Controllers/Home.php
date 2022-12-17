@@ -23,6 +23,10 @@ class Home extends BaseController
 	}
 	public function dashboard()
 	{
+		if (!isset($_SESSION['logged_in']))
+        {
+                  return redirect()->to('/signin');
+            }
 		
 		$data = [
 			'title_meta' => view('partials/title-meta', ['title' => 'Dashboard']),
@@ -35,6 +39,10 @@ class Home extends BaseController
 	}
 	public function orders()
 	{
+		if (!isset($_SESSION['logged_in']))
+        {
+                  return redirect()->to('/signin');
+            }
 		
 		$data = [
 			'title_meta' => view('partials/title-meta', ['title' => 'Orders']),
@@ -47,6 +55,10 @@ class Home extends BaseController
 	}
 	public function leads()
 	{
+		if (!isset($_SESSION['logged_in']))
+        {
+                  return redirect()->to('/signin');
+            }
 		
 		$data = [
 			'title_meta' => view('partials/title-meta', ['title' => 'Leads']),
