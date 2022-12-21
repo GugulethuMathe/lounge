@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\PackproModel;
 use App\Models\ProductModel;
 
 
@@ -90,6 +91,16 @@ class Product extends BaseController
 
 				if ($model->save($data)) {
 					$session->setFlashdata("success_added", "Product Added Successfully");
+					if($request->getVar('package_id') != null){
+						$model = new PackproModel();
+						$record = [
+							'package_id' => $request->getVar('package_id') ,
+							'product_id' => $model->insertID()
+						];
+						$model->save($record);
+						$session->setFlashdata("success", "Successfully added product");
+						return redirect()->to('/choose-package');
+					}
 
 					return redirect()->to('/products');
 				}

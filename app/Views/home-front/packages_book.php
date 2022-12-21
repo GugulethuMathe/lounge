@@ -32,6 +32,7 @@
                                                     foreach ($results as $pack) {
                                                     ?>
                                                     <div class="col-md-3">
+                                                        <input type="hidden" class="packages" value="<?=$pack->id ?>">
                                                         <article class="aa-properties-item">
                                                             <a type="button" data-toggle="modal"
                                                                 data-target="#exampleModal-<?= $pack->id; ?>"
@@ -138,7 +139,8 @@ foreach ($results as $pack) {
                                                             <label for="">
                                                                 Add
                                                                 <input type="checkbox" name="products[]"
-                                                                    id="prod-<?=$prod->id?>" value="[<?=$prod->id.','.$prod->price?>]"
+                                                                    class="products-checkbox" id="prod-<?=$prod->id?>"
+                                                                    value="[<?=$prod->id.','.$prod->price?>]"
                                                                     onchange="handleChange(<?=$prod->id?>,'<?=$prod->product_name?>',<?=$prod->price?>,<?=$pack->id?>)">
                                                             </label>
 
@@ -223,15 +225,108 @@ foreach ($results as $pack) {
                     </div>
                 </div>
                 <div style="margin: auto; width: 50%;" class="modal-footer">
-                    <button class="btn btn-sm btn-primary" data-bs-target="#products" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Add more Products</button>
+                    <button type="button" class="btn btn-sm btn-primary" data-package_id="<?= $pack->id?>"
+                        data-dismiss="modal" aria-hidden="true"
+                        onclick="addProduct(<?= $pack->id.',\''.$pack->name.'\''?>)">Add more
+                        Products</button>
                     <button type="submit" class="btn btn-sm bg-success text-white">Submit</button>
+                    <button type="button" class="btn btn-sm bg-secondary text-white " data-dismiss="modal"
+                        aria-hidden="true">Cancel</button>
+
                 </div>
             </form>
         </div>
     </div>
 </div>
 <?php } ?>
+<!-- Product modal -->
+<div class="modal fade bs-example-modal-center" id="product_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pack_name">Add Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="<?php echo base_url('product/addProduct'); ?>"
+                    enctype="multipart/form-data">
+                    <input type="hidden" name="package_id" id="pack_id">
+                    <div class="or-seperator"><b></b></div>
+                    <div class="row">
+
+                        <div class="col-md-12 my-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control input-lg" name="product_name"
+                                    placeholder="Product Name" required="required">
+                            </div>
+                        </div>
+                        <div class="col-md-12 my-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control input-lg" name="product_code"
+                                    placeholder="Product Code" required="required">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12 my-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control input-lg" name="price" placeholder="Price"
+                                    required="required">
+                            </div>
+                        </div>
+                        <div class="col-md-12 my-3">
+                            <div class="form-group">
+                                <input type="number" class="form-control input-lg" name="quantity"
+                                    placeholder="Quantity" required="required">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="dropdown drop_down">
+                                    <select class="form-control" required="required" name="catergory_id">
+                                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                        <option label="Choose Catergory"></option>
+                                        <?php
+                                            $db = \Config\Database::connect();
+                                            $query   = $db->query('SELECT * FROM prod_category');
+                                            $results = $query->getResult();
+                                            foreach ($results as $data) {
+                                            ?>
+                                        <option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
+                                        <?php } ?>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 my-3">
+                            <div class="form-group">
+                                <label for="">Product Image</label>
+                                <div class="fallback">
+                                    <input type="file" name="product_image" id="product_image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 my-3">
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <textarea class="form-control" name="description" cols="64" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                    <!-- <div class="or-seperator"> </div> -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-success block">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- End of product modal -->
+
 
 
 
@@ -244,33 +339,51 @@ foreach ($results as $pack) {
 
 <?= $this->include('homeinc/footer') ?>
 <script>
-    let PRODUCTS = [{
-        id: parseInt('<?= $tshirt->id ?>'),
-        prod_name: '<?= $tshirt->product_name." x ".$people ?>',
-        prod_price: '<?= $tshirt->price * $people  ?>'
-    }];
+    let PRODUCTS = [];
+    initializeProduct();
+
+    function initializeProduct() {
+        $('.packages').each((i, el) => {
+            PRODUCTS.push({
+                id: parseInt('<?= $tshirt->id ?>'),
+                prod_name: '<?= $tshirt->product_name." x ".$people ?>',
+                prod_price: '<?= $tshirt->price * $people  ?>',
+                package_id: $(el).val()
+            });
+        });
+    }
 
     function handleChange(id, prod_name, prod_price, package_id) {
         if ($(`#prod-${id}`).is(':checked')) {
             PRODUCTS.push({
                 id,
                 prod_name,
-                prod_price
+                prod_price,
+                package_id
             });
         } else {
-            let index = PRODUCTS.findIndex((item) => item.id == id);
+            let index = PRODUCTS.findIndex((item) => item.id == id && item.package_id == package_id);
             if (index != -1)
                 PRODUCTS.splice(index, 1);
 
         }
+
+        populateTable(package_id);
+
+    }
+
+    function populateTable(package_id) {
         let rows = '';
         let total = 0;
         PRODUCTS.forEach(element => {
-            rows += `<tr>
+            if (element['package_id'] == package_id) {
+
+                rows += `<tr>
                             <td>${element['prod_name']}</td>
                             <td>R<span>${element['prod_price']}</span></td>
                      </tr>`;
-            total += parseFloat(element['prod_price']);
+                total += parseFloat(element['prod_price']);
+            }
         });
         $(`#orderTable-${package_id} > tbody`).html(rows);
         let footer = `<tr>
@@ -280,8 +393,6 @@ foreach ($results as $pack) {
                             </th>
                         </tr>`;
         $(`#orderTable-${package_id} > tfoot`).html(footer);
-
-
     }
     $(document).ready(function () {
         $('#packagesm').hide();
@@ -340,4 +451,14 @@ foreach ($results as $pack) {
         });
 
     });
+    let isSuccess = "<?= isset($_SESSION['success']) ?>";
+    if (isSuccess) {
+        alert('successfully added product');
+    }
+
+    function addProduct(package_id, package_name) {
+        $('#product_modal').modal('show');
+        $('#pack_id').val(package_id);
+        $('#pack_name').text(`Add product for "${package_name}"`)
+    }
 </script>
