@@ -57,7 +57,8 @@ class Manager extends BaseController
 			];
 			
 			$model->save($newData);
-			return $this->response->setJSON($data);
+			$session->setFlashdata("success_manager", "Admin added Successfully");
+			return redirect()->to('/administrators');
 		
 	}
 	public function delete()

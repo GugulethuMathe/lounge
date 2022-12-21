@@ -1,10 +1,20 @@
 <?= $this->include('inc/header') ?>
 <div class="main-content">
+<script>
+        $(function() {
 
+            <?php if (session()->has("success_manager")) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Admin Added Successfully',
+                })
+            <?php } ?>
+
+        });
+    </script>
     <div class="page-content">
         <div class="container-fluid">
 
-            <?= $page_title ?>
 
 
             <div class="row">
@@ -53,41 +63,41 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="managers-form">
+                    <form method="POST" action="<?php echo base_url()?>/manager/addManager">
 
                         <div class="or-seperator"><b></b></div>
                         <div class="row">
                             <div class="col-md-12 my-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control input-lg" id="first_name" placeholder="First Name" required="required">
+                                    <input type="text" class="form-control input-lg" name="first_name" placeholder="First Name" required="required">
                                 </div>
                             </div>
                             <div class="col-md-12 my-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control input-lg" id="last_name" placeholder="Last Name" required="required">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12 my-3">
-                                <div class="form-group">
-                                    <input type="text" class="form-control input-lg" id="contact" placeholder="Contact Number" required="required">
-                                </div>
-                            </div>
-                            <div class="col-md-12 my-3">
-                                <div class="form-group">
-                                    <input type="email" class="form-control input-lg" id="email" placeholder="Email Address">
+                                    <input type="text" class="form-control input-lg" name="last_name" placeholder="Last Name" required="required">
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12 my-3">
                                 <div class="form-group">
-                                    <input type="password" class="form-control input-lg" id="password" placeholder="Password">
+                                    <input type="text" class="form-control input-lg" name="contact" placeholder="Contact Number" required="required">
+                                </div>
+                            </div>
+                            <div class="col-md-12 my-3">
+                                <div class="form-group">
+                                    <input type="email" class="form-control input-lg" name="email" placeholder="Email Address">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12 my-3">
+                                <div class="form-group">
+                                    <input type="password" class="form-control input-lg" name="password" placeholder="Password">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="dropdown drop_down">
-                                        <select class="form-control" value="" id="roles">
+                                        <select class="form-control" value="" name="roles">
                                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                                             <option name="" value="">Select a Role
                                             </option>

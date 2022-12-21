@@ -23,6 +23,7 @@
                                         <th>Customer's Email</th>
                                         <th>Check In</th>
                                         <th>Check Out</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -40,6 +41,7 @@
                                             <td><?= $row->email; ?></td>
                                             <td><?= $row->start_date; ?></td>
                                             <td><?= $row->end_date; ?></td>
+                                            <td><?= $row->event_status; ?></td>
 
                                             <td>
 

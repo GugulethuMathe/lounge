@@ -53,6 +53,22 @@ class Home extends BaseController
 		
 		return view('home-back/orders', $data);
 	}
+	public function checkOutOrders()
+	{
+		if (!isset($_SESSION['logged_in']))
+        {
+                  return redirect()->to('/signin');
+            }
+		
+		$data = [
+			'title_meta' => view('partials/title-meta', ['title' => 'Orders']),
+			'page_title' => view('partials/page-title', ['title' => 'Orders', 'li_1' => 'Iziko de Lounge', 'li_2' => 'Orders'])
+		];
+		$model = new CustomerModel();
+        $data['customers']  = $model->getAllOrders();
+		
+		return view('home-back/check-out-orders', $data);
+	}
 	public function leads()
 	{
 		if (!isset($_SESSION['logged_in']))

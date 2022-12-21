@@ -11,7 +11,7 @@
                             <header class="header slider-fade">
                                 <div class="owl-carousel owl-theme">
                                     <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-                                    <div class="text-center item bg-img" data-overlay-dark="2" data-background="https://shtheme.com/demosd/thecappa/wp-content/uploads/2022/06/2.jpg">
+                                    <div class="text-center item bg-img" data-overlay-dark="2" data-background="<?php echo base_url()?>/assets/images/1.jpg">
                                         <div class="v-middle caption">
                                             <div class="container">
                                                 <div class="row">
@@ -113,8 +113,17 @@
                                             </span>
                                             <div class="section-subtitle">Iziko de Lounge Home of Luxury </div>
                                             <div class="section-title">Enjoy a Luxury Experience</div>
-                                            <p>Welcome to the Iziko de Lounge. Lounge elementum sesue the aucan vestibulum aliquam justo in sapien rutrum volutpat. Donec in quis the pellentesque velit. Donec id velit ac arcu posuere blane.</p>
-                                            <p>Lounge ut nisl quam nestibulum ac quam nec odio elementum sceisue the aucan ligula. Orci varius natoque penatibus et magnis dis parturient monte nascete ridiculus mus nellentesque habitant morbine.</p> <!-- call -->
+                                            <p>iZiko-de lounge offers a relaxing bush getaway only 1h30 from Pretoria, 1h45 from Johannesburg and is a mere 50km from Sun city. 
+
+If you're looking for a stay close to nature, presented to you as you wish, to unwind, de-stress or simply enjoy a fun filled day , this is the place to be. 
+
+</p>
+                                            <p>Our lodging facilities offer a range of bed sizes to accommodate individuals, couples and groups. TVs are available in all the rooms and WiFi to all out guests.
+
+*Restaurant and venue*
+Perfect for individuals looking for an outdoor venue to host functions such as office parties, family reunions, birthday parties and engagement parties. Any occasion will be custom made to suite your needs.
+
+We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                             <div class="reservations">
                                                 <div class="icon"><span class="flaticon-call"></span></div>
                                                 <div class="text">
@@ -158,7 +167,6 @@
                                             <div class="single-facility animate-box" data-animate-effect="fadeInUp">
                                                 <span class="flaticon-world"></span>
                                                 <h5>Pick Up &amp; Drop</h5>
-                                                <p>We’ll pick you up from anywhere, while you comfy on your ride, mus nellentesque habitant.</p>
                                                 <div class="facility-shape">
                                                     <span class="flaticon-world"></span>
                                                 </div>
@@ -168,7 +176,6 @@
                                             <div class="single-facility animate-box" data-animate-effect="fadeInUp">
                                                 <span class="flaticon-car"></span>
                                                 <h5>Parking Space</h5>
-                                                <p>Fusce tincidunt nis ace park norttito sit amet space, mus nellentesque habitant.</p>
                                                 <div class="facility-shape">
                                                     <span class="flaticon-car"></span>
                                                 </div>
@@ -178,7 +185,6 @@
                                             <div class="single-facility animate-box" data-animate-effect="fadeInUp">
                                                 <span class="flaticon-bed"></span>
                                                 <h5>Room Service</h5>
-                                                <p>Room tincidunt nis ace park norttito sit amet space, mus nellentesque habitant.</p>
                                                 <div class="facility-shape">
                                                     <span class="flaticon-bed"></span>
                                                 </div>
@@ -188,7 +194,6 @@
                                             <div class="single-facility animate-box" data-animate-effect="fadeInUp">
                                                 <span class="flaticon-swimming"></span>
                                                 <h5>Swimming Pool</h5>
-                                                <p>Swimming pool tincidunt nise ace park norttito sit space, mus nellentesque habitant.</p>
                                                 <div class="facility-shape">
                                                     <span class="flaticon-swimming"></span>
                                                 </div>
@@ -198,7 +203,6 @@
                                             <div class="single-facility animate-box" data-animate-effect="fadeInUp">
                                                 <span class="flaticon-wifi"></span>
                                                 <h5>Fibre Internet</h5>
-                                                <p>Wifi tincidunt nis ace park norttito sit amet space, mus nellentesque habitant.</p>
                                                 <div class="facility-shape">
                                                     <span class="flaticon-wifi"></span>
                                                 </div>
@@ -208,7 +212,6 @@
                                             <div class="single-facility animate-box" data-animate-effect="fadeInUp">
                                                 <span class="flaticon-breakfast"></span>
                                                 <h5>Breakfast</h5>
-                                                <p>Eat tincidunt nisa ace park norttito sit amet space, mus nellentesque habitant</p>
                                                 <div class="facility-shape">
                                                     <span class="flaticon-breakfast"></span>
                                                 </div>
@@ -310,8 +313,8 @@
                                             <div class="item">
                                                 <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/1-2.jpg" alt=""> </div> <span class="category"><a href="index-12.htm?room=junior-suite"></a></span>
                                                 <div class="con">
-                                                    <h6><a href="index-12.htm?room=junior-suite">View Room</a></h6>
-                                                    <h5><a href="index-12.htm?room=junior-suite">Junior Suite</a> </h5>
+                                                   
+                                                    <h5>Individuals </h5>
                                                     <div class="line"></div>
                                                     <div class="row facilities">
                                                         <div class="col col-md-7">
@@ -325,7 +328,6 @@
                                                             </ul>
                                                         </div>
                                                         <div class="col col-md-5 text-right">
-                                                            <div class="permalink"><a href="index-12.htm?room=junior-suite">Details <i class="ti-arrow-right"></i></a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -335,8 +337,8 @@
                                             <div class="item">
                                                 <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/2-3.jpg" alt=""> </div> <span class="category"><a href="index-24.htm?room=family-room"></a></span>
                                                 <div class="con">
-                                                    <h6><a href="index-24.htm?room=family-room">View Room</a></h6>
-                                                    <h5><a href="index-24.htm?room=family-room">Family Room</a> </h5>
+                                                    
+                                                    <h5>Family Room</h5>
                                                     <div class="line"></div>
                                                     <div class="row facilities">
                                                         <div class="col col-md-7">
@@ -348,7 +350,6 @@
                                                             </ul>
                                                         </div>
                                                         <div class="col col-md-5 text-right">
-                                                            <div class="permalink"><a href="index-24.htm?room=family-room">Details <i class="ti-arrow-right"></i></a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -358,8 +359,7 @@
                                             <div class="item">
                                                 <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/3-3.jpg" alt=""> </div> <span class="category"><a href="<?php echo base_url(); ?>"></a></span>
                                                 <div class="con">
-                                                    <h6><a href="<?php echo base_url(); ?>">View Room</a></h6>
-                                                    <h5><a href="<?php echo base_url(); ?>book">Double Room</a> </h5>
+                                                    <h5>Couples</h5>
                                                     <div class="line"></div>
                                                     <div class="row facilities">
                                                         <div class="col col-md-7">
@@ -371,7 +371,6 @@
                                                             </ul>
                                                         </div>
                                                         <div class="col col-md-5 text-right">
-                                                            <div class="permalink"><a href="<?php echo base_url(); ?>book">Details <i class="ti-arrow-right"></i></a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -381,8 +380,8 @@
                                             <div class="item">
                                                 <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/4.jpg" alt=""> </div> <span class="category"><a href="index-26.htm?room=deluxe-room"></a></span>
                                                 <div class="con">
-                                                    <h6><a href="index-26.htm?room=deluxe-room">View Room</a></h6>
-                                                    <h5><a href="index-26.htm?room=deluxe-room">Deluxe Room</a></h5>
+                                                    
+                                                    <h5>Groups</h5>
                                                     <div class="line"></div>
                                                     <div class="row facilities">
                                                         <div class="col col-md-7">
@@ -396,37 +395,12 @@
                                                             </ul>
                                                         </div>
                                                         <div class="col col-md-5 text-right">
-                                                            <div class="permalink"><a href="index-26.htm?room=deluxe-room">Details <i class="ti-arrow-right"></i></a></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/7-1.jpg" alt=""> </div> <span class="category"><a href="index-27.htm?room=superior-room"></a></span>
-                                                <div class="con">
-                                                    <h6><a href="index-27.htm?room=superior-room">View Room</a></h6>
-                                                    <h5><a href="index-27.htm?room=superior-room">Superior Room</a></h5>
-                                                    <div class="line"></div>
-                                                    <div class="row facilities">
-                                                        <div class="col col-md-7">
-                                                            <ul>
-                                                                <ul>
-                                                                    <li><i class="flaticon-bed"></i></li>
-                                                                    <li><i class="flaticon-bath"></i></li>
-                                                                    <li><i class="flaticon-breakfast"></i></li>
-                                                                    <li><i class="flaticon-towel"></i></li>
-                                                                </ul>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="col col-md-5 text-right">
-                                                            <div class="permalink"><a href="index-27.htm?room=superior-room">Details <i class="ti-arrow-right"></i></a></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                     
                                     </div>
                                 </div>
                             </section>
@@ -452,8 +426,8 @@
                                         <div class="col-md-4">
                                             <div class="section-subtitle"><span>Best Prices</span></div>
                                             <div class="section-title"><span>Extra Services</span></div>
-                                            <p class="color-2">You can choose products such as drinks and food, services like Djs, Cameramen and many more before you come to the lounge . The utanislen quam nestibulum ac quame odion elementum sceisue the aucan.</p>
-                                            <p class="color-2">Orci varius natoque penatibus et magnis disney parturient monte nascete ridiculus mus nellen etesque habitant morbine.</p>
+                                            <p class="color-2">You can choose products such as drinks and food, services like Djs, Cameramen and many more before you come to the lounge .In addition to our tantalizing desserts, our menu honors the finest local products,
+obtained from our community's most reputable farmers and craftsmen.</p>
                                             <div class="reservations mb-30">
                                                 <div class="icon"><span class="flaticon-call"></span></div>
                                                 <div class="text">
@@ -464,53 +438,34 @@
                                         <div class="col-md-8">
                                             <div class="owl-carousel owl-theme">
                                                 <div class="pricing-card">
-                                                    <img src="wp-content/uploads/2022/06/2-2.jpg" alt="">
+                                                    <img height="236" src="wp-content/uploads/2022/06/2-2.jpg" alt="">
                                                     <div class="desc">
                                                         <div class="name">Products</div>
                                                         <div class="amount"></span></div>
                                                         <ul class="list-unstyled list">
                                                             <li><i class="ti-check"></i>Drinks</li>
+                                                            <li><i class="ti-check"></i>Alcohol</li>
                                                             <li><i class="ti-check"></i> Food</li>
+                                                            <li><i class="ti-check"></i> Braai</li>
                                                             <!-- <li><i class="ti-close unavailable"></i></li> -->
                                                         </ul>
                                                     </div>
                                                 </div>
                                                 <div class="pricing-card">
-                                                    <img src="wp-content/uploads/2022/06/2-2.jpg" alt="">
+                                                    <img height="236" style="height: 236px;" src="assets/images/8.jpg" alt="">
                                                     <div class="desc">
                                                         <div class="name">Services</div>
                                                         <div class="amount"></span></div>
                                                         <ul class="list-unstyled list">
                                                             <li><i class="ti-check"></i> Djs</li>
                                                             <li><i class="ti-check"></i> Cameramen </li>
+                                                            <li><i class="ti-check"></i> Room Service </li>
+                                                            <li><i class="ti-check"></i> Chef </li>
                                                             <!-- <li><i class="ti-close unavailable"></i>Clean sorem ipsum morbin</li> -->
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div class="pricing-card">
-                                                    <img src="wp-content/uploads/2022/06/3.jpg" alt="">
-                                                    <div class="desc">
-                                                        <div class="name">Room Service</div>
-                                                        <!-- <div class="amount">$30<span>/ daily</span></div> -->
-                                                        <ul class="list-unstyled list">
-                                                            <li><i class="ti-check"></i> Lounge ut nisan the duru</li>
-                                                            <li><i class="ti-check"></i> Orci miss natoque vasa ince</li>
-                                                            <li><i class="ti-close unavailable"></i>Clean sorem ipsum morbin</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="pricing-card">
-                                                    <img src="wp-content/uploads/2022/06/4.jpg" alt="">
-                                                    <div class="desc">
-                                                        <div class="name">Safe &amp; Secure</div>
-                                                        <div class="amount">$15<span>/ daily</span></div>
-                                                        <ul class="list-unstyled list">
-                                                            <li><i class="ti-check"></i> Lounge ut nisan the duru</li>
-                                                            <li><i class="ti-check"></i> Orci miss natoque vasa ince</li>
-                                                            <li><i class="ti-close unavailable"></i>Clean sorem ipsum morbin</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -546,7 +501,7 @@
                                                     <div class="owl-carousel owl-theme">
                                                         <div class="item">
                                                             <span class="quote"><img src="wp-content/uploads/2022/06/quot.png" alt=""></span>
-                                                            <p>Lounge dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at finibus viverra neca the sene on satien the miss drana inc fermen norttito sit space, mus nellentesque habitan.</p>
+                                                            <p>Sometimes l need to get out of the city from all the noise and busyness, Iziko de Lounge is my go to place to recharge. l highly recommend it.</p>
                                                             <div class="info">
                                                                 <div class="author-img"> <img src="wp-content/uploads/2022/06/4-1.jpg" alt=""> </div>
                                                                 <div class="cont">
@@ -562,42 +517,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="item">
-                                                            <span class="quote"><img src="wp-content/uploads/2022/06/quot.png" alt=""></span>
-                                                            <p>Lounge dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at finibus viverra neca the sene on satien the miss drana inc fermen norttito sit space, mus nellentesque habitan.</p>
-                                                            <div class="info">
-                                                                <div class="author-img"> <img src="wp-content/uploads/2022/06/1-1.jpg" alt=""> </div>
-                                                                <div class="cont">
-                                                                    <span>
-                                                                        <i class="star-rating"></i>
-                                                                        <i class="star-rating"></i>
-                                                                        <i class="star-rating"></i>
-                                                                        <i class="star-rating"></i>
-                                                                        <i class="star-rating"></i>
-                                                                    </span>
-                                                                    <h6>Nolan White</h6>
-                                                                    <span>Guest review</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item">
-                                                            <span class="quote"><img src="wp-content/uploads/2022/06/quot.png" alt=""></span>
-                                                            <p>Lounge dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at finibus viverra neca the sene on satien the miss drana inc fermen norttito sit space, mus nellentesque habitan.</p>
-                                                            <div class="info">
-                                                                <div class="author-img"> <img src="wp-content/uploads/2022/06/5.jpg" alt=""> </div>
-                                                                <div class="cont">
-                                                                    <span>
-                                                                        <i class="star-rating"></i>
-                                                                        <i class="star-rating"></i>
-                                                                        <i class="star-rating"></i>
-                                                                        <i class="star-rating"></i>
-                                                                        <i class="star-rating"></i>
-                                                                    </span>
-                                                                    <h6>Olivia Martin</h6>
-                                                                    <span>Guest review</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                      
                                                     </div>
                                                 </div>
                                             </div>

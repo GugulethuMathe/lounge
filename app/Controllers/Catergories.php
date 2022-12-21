@@ -47,7 +47,8 @@ class Catergories extends BaseController
 				
 			];	
 			$model->save($newData);
-			return $this->response->setJSON($data);		
+			$session->setFlashdata("success_cat", "Category Added Successfully");
+			return redirect()->to('/catergories');	
 	}
 
 	public function delete()

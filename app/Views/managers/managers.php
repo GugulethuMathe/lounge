@@ -4,7 +4,6 @@
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <?= $page_title ?>
 
                     <div class="row">
                         <div class="col-xl-3 col-md-6">

@@ -6,7 +6,7 @@
                         <div class="textwidget custom-html-widget">
                             <div class="footer-column footer-about">
                                 <h3 class="footer-title">About Iziko de Lounge</h3>
-                                <p class="footer-about-text">Welcome to the best lounge in Rusternburg. Lounge elementum sesue the aucan vestibulum aliquam justo in sapien rutrum volutpat.</p>
+                                <p class="footer-about-text">iZiko-de lounge offers a relaxing bush getaway only 1h30 from Pretoria, 1h45 from Johannesburg and is a mere 50km from Sun city. If you're looking for a stay close to nature, presented to you as you wish, to unwind, de-stress or simply enjoy a fun filled day , this is the place to be.</p>
 
                                 <div class="footer-language"> <i class="lni ti-world"></i>
                                     <select>

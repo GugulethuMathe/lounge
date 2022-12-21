@@ -87,7 +87,7 @@ class Book extends BaseController
      
         $model->save($newData);
         // return $this->response->setJSON($data);
-        $session->setFlashdata("success", "Successfully");
+        // $session->setFlashdata("success", "Successfully");
         $session->set(['customer_id' => $model->getInsertID()]);
 
         return redirect()->to('/choose-package');
@@ -109,8 +109,8 @@ class Book extends BaseController
 
         );
         $model->update($id, $data);
-        $session->setFlashdata("success_update", "Order approved Successfully");
-        // return redirect()->to('/apartments');
+        $session->setFlashdata("success_approve", "Order approved Successfully");
+        return redirect()->to('/dashboard');
     }
     public function checkCustomerOut()
     {
@@ -122,12 +122,11 @@ class Book extends BaseController
 		$id = $request->getVar('customer_id');
         $data = array(
             'event_status' => 'Check_out',
-         
-
+        
         );
         $model->update($id, $data);
-        $session->setFlashdata("success_update", "Order approved Successfully");
-        // return redirect()->to('/apartments');
+        $session->setFlashdata("check_out", "Customer check out Successfully");
+        return redirect()->to('/orders');
     }
 
 
@@ -172,7 +171,7 @@ class Book extends BaseController
             'quantity' => $request->getVar('quantity'),
             'price' => $request->getVar('price'),
             'description' => $request->getVar('description'),
-            'catergory_id' => $request->getVar('catergory_id'),
+            'catergory_id' => $request->getVar('catergory_id')
             // 'is_featured' => $request->getVar('is_featured')
         ];
         $model->save($newData);

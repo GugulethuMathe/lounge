@@ -1,6 +1,17 @@
 <?= $this->include('inc/header') ?>
 <div class="main-content">
+<script>
+        $(function() {
 
+            <?php if (session()->has("success_cat")) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Category Added Successfully',
+                })
+            <?php } ?>
+
+        });
+    </script>
     <div class="page-content">
         <div class="container-fluid">
             <div class="row">
@@ -91,12 +102,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="catergories-form">
+                    <form method="POST" action="<?php echo base_url()?>/catergories/addCategories">
                         <div class="or-seperator"><b></b></div>
                         <div class="row">
                             <div class="col-md-12 my-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control input-lg" id="name" placeholder="Catergory Name" required="required">
+                                    <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Catergory Name" required="required">
                                 </div>
                             </div>
 

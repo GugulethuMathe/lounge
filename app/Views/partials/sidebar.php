@@ -27,19 +27,20 @@
                     </a>
 
                 </li>
-              
+                <li>
+                    <a href="<?php echo base_url(); ?>/check-out-orders" class="has-arrow">
+                        <i data-feather="shopping-cart"></i>
+                        <span data-key="t-check-out-orders">Checked Out Orders</span>
+                    </a>
+
+                </li>
                 <li>
                     <a href="<?php echo base_url(); ?>/administrators" class="has-arrow">
                     <i data-feather="users"></i>
                         <span data-key="t-admins">Adminstrators</span>
                     </a>
                 </li>
-                <li>
-                    <a href="<?php echo base_url(); ?>/staff" class="has-arrow">
-                    <i data-feather="users"></i>
-                        <span data-key="t-chat">Staff</span>
-                    </a>
-                </li>
+            
                 <li>
                     <a href="<?php echo base_url(); ?>/catergories" class="has-arrow">
                     <i data-feather="grid"></i>
@@ -59,12 +60,12 @@
                         <span data-key="t-packages">Packages</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="<?php echo base_url(); ?>/rooms" class="has-arrow">
                     <i data-feather="grid"></i>
                         <span data-key="t-rooms">Rooms</span>
                     </a>
-                </li>             
+                </li>              -->
             </ul>
 
         </div>

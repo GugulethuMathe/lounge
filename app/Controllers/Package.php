@@ -66,7 +66,7 @@ class Package extends BaseController
         
 			$model = new PackproModel();
 			$request = \Config\Services::request();
-
+            $session = session();
 			$newData = [
 				'package_id' => $request->getVar('package_id'),
 				'products' => $request->getVar('products')
@@ -79,7 +79,9 @@ class Package extends BaseController
                 ];
                 $model->save($record);
             }
-           echo 'Submitted';
+            $session->setFlashdata("success_pro_pack", "Products Added to Package");
+
+            return redirect()->to('/packages');
     }
 
 	public function addPackage()
@@ -109,7 +111,7 @@ class Package extends BaseController
                 );
 
                 if ($model->save($data)) {
-                    $session->setFlashdata("success_added", "Package Added Successfully");
+                    $session->setFlashdata("success_pack", "Package Added Successfully");
 
                     return redirect()->to('/packages');
                 }

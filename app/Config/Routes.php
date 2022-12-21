@@ -41,6 +41,7 @@ $routes->get('/logout', 'Login::logout');
 $routes->get('/dashboard', 'Home::dashboard');
 $routes->get('/leads', 'Home::leads');
 $routes->get('/orders', 'Home::orders');
+$routes->get('/check-out-orders', 'Home::checkOutOrders');
 
 //Products
 $routes->get('/products', 'Product::index');

@@ -1,4 +1,26 @@
 <?= $this->include('inc/header') ?>
+<script>
+        $(function() {
+
+            <?php if (session()->has("success_pack")) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Package Added Successfully',
+                })
+            <?php } ?>
+
+        });
+        $(function() {
+
+<?php if (session()->has("success_pro_pack")) { ?>
+    Swal.fire({
+        icon: 'success',
+        title: 'Products Added to Package',
+    })
+<?php } ?>
+
+});
+    </script>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -134,52 +156,88 @@
     </div><!-- /.modal -->
 
     <!-- Details modal -->
-    <div id="exampleModalFullscreen" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+    <?php
+$db = \Config\Database::connect();
+$query = $db->query('SELECT * FROM packages');
+$results = $query->getResult(); 
+
+?>
+
+<?php
+foreach ($results as $pack) {
+?>
+    <div id="exampleModalFullscreen-<?= $pack->id; ?>" class="modal fade" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalFullscreenLabel">Viewing Package Name</h5>
+                    <h5 class="modal-title" id="exampleModalFullscreenLabel">Viewing <?= $pack->name ?></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5> <button type="button" class="btn btn-outline-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">Add Products</button></h5>
-                    <p>Cras mattis consectetur purus sit amet fermentum.
-                        Cras justo odio, dapibus ac facilisis in,
-                        egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.</p>
-                    <p>Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Vivamus sagittis lacus vel
-                        augue laoreet rutrum faucibus dolor auctor.</p>
-                    <p>Aenean lacinia bibendum nulla sed consectetur.
-                        Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor
-                        fringilla.</p>
-                    <p>Cras mattis consectetur purus sit amet fermentum.
-                        Cras justo odio, dapibus ac facilisis in,
-                        egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.</p>
-                    <p>Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Vivamus sagittis lacus vel
-                        augue laoreet rutrum faucibus dolor auctor.</p>
-                    <p>Aenean lacinia bibendum nulla sed consectetur.
-                        Praesent commodo cursus magna, vel scelerisque
-                        nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor
-                        fringilla.</p>
-                    <p>Cras mattis consectetur purus sit amet fermentum.
-                        Cras justo odio, dapibus ac facilisis in,
-                        egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.</p>
+                    <div class="container-fluid">
+                                    <div class="row">
+                                        
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <?php
+                                        $db = \Config\Database::connect();
+                                        $query_prod = $db->query('SELECT DiSTINCT P.* FROM products P INNER JOIN package_products PP  ON P.id=PP.product_id
+                                                                  WHERE PP.package_id='.$pack->id);
+                                        $results_prod = $query_prod->getResult();
+                                        foreach ($results_prod as $prod) {
+                                        ?>
+                                        <div class="col-md-3 product-item card-container snipcss-PVKSK">
+                                            <div class="product-wrapper mb-75">
+                                                <div class="product-img mb-25">
+
+                                                    <div class="sale">
+                                                        <span class="site-button button-sm">
+    
+                                                        
+
+                                                        </span>
+                                                        <img width="200" class="pro-img" height="200"
+                                                            src="<?php echo base_url() ?>/<?= $prod->img; ?>"
+                                                            sizes="(max-width: 200px) 100vw, 200px">
+                                                    </div>
+
+                                                </div>
+                                                <div class="product-content">
+                                                    <h4 class="shop">
+                                                        <?= $prod->product_name; ?>
+                                                        </a>
+                                                    </h4>
+                                                    <div class="product-meta">
+                                                        <div class="pro-price">
+                                                            <span class="price">
+
+                                                                <span class="woocommerce-Price-amount amount">
+                                                                    <span class="woocommerce-Price-currencySymbol">
+                                                                        Price: R
+                                                                    </span>
+                                                                    <?= $prod->price; ?>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="shop-add-to-cart">
+                                                        <?= $prod->description; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    
+    <?php } ?>
     <div class="modal fade bs-example-modal-center" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -297,7 +355,7 @@
 					<td> ' + value['name'] + ' </td>\
 					<td> ' + value['is_featured'] + ' </td>\
                     <td>\
-                        <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" table-id=' + value['id'] + ' data-bs-target="#exampleModalFullscreen">View package</button>\
+                        <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal" table-id=' + value['id'] + ' data-bs-target="#exampleModalFullscreen'+'-' + value['id'] + '">View package</button>\
 					</td>\
                     <td>\
                         <button type="button" class="btn btn-info btn-sm waves-effect waves-light" data-bs-toggle="modal" onclick="getID(' + value['id'] + ',' + package_name + ')" data-bs-target="#exampleModalFullscreen1">Add products to this package</button>\

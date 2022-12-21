@@ -1,11 +1,19 @@
 <?= $this->include('inc/header') ?>
 <div class="main-content">
+<script>
+        $(function() {
 
+            <?php if (session()->has("success_added")) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Product Added Successfully',
+                })
+            <?php } ?>
+
+        });
+    </script>
     <div class="page-content">
         <div class="container-fluid">
-
-            
-
 
             <div class="row">
                 <div class="col-12">

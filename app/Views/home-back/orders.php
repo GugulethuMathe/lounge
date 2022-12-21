@@ -1,5 +1,16 @@
 <?= $this->include('inc/header') ?>
+<script>
+        $(function() {
 
+            <?php if (session()->has("check_out")) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Customer Checked Out',
+                })
+            <?php } ?>
+
+        });
+    </script>
 <!-- ============================================================== -->
 <!-- Start right Content here -->
 <!-- ============================================================== -->
@@ -12,7 +23,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">All Orders</h4>
+                            <h4 class="card-title">Approved Orders</h4>
                         </div>
                         <div class="card-body">
                             <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
