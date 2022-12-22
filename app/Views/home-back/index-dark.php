@@ -4,17 +4,17 @@
 <!-- Start right Content here -->
 <!-- ============================================================== -->
 <script>
-        $(function() {
+    $(function() {
 
-            <?php if (session()->has("success_approve")) { ?>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Approved',
-                })
-            <?php } ?>
+        <?php if (session()->has("success_approve")) { ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Approved',
+            })
+        <?php } ?>
 
-        });
-    </script>
+    });
+</script>
 <div class="main-content">
 
     <div class="page-content">
@@ -31,17 +31,46 @@
                             <div class="row align-items-center">
                                 <div class="col-6">
                                     <span class="text-muted mb-3 lh-1 d-block text-truncate">Lounge Status</span>
-                                    <h4 class="mb-3">
-                                        <i data-feather="door"></i>
-                                        <i class="fa fa-2x text-success fa-door-open"></i>
-                                    </h4>
+                                    <?php $db = \Config\Database::connect();
+                                    // Check if there is a record with the status 'completed'
+                                    $result = $db->table('customers')->where('event_status', 'Approved')->select('*');
+                                    $numRows = $result->countAllResults();
+
+
+
+                                    // Check the number of rows returned by the query
+                                    if ($numRows > 0) {
+                                        // Print "exist" if there is at least one row
+                                    ?> <h4 class="mb-3">
+                                            <i data-feather="door"></i>
+                                            <i class="fa fa-2x text-danger fa-door-closed"></i>
+                                        </h4>
+                                        <div class="text-nowrap">
+
+                                            <span class="badge bg-soft-white text-danger">The lounge is closed check out the customer first to open it</span>
+
+                                        </div>
+                                    <?php
+                                    } else {
+                                    ?>
+
+                                        <h4 class="mb-3">
+                                            <i data-feather="door"></i>
+                                            <i class="fa fa-2x text-success fa-door-open"></i>
+                                        </h4>
+                                        <div class="text-nowrap">
+                                            <span class="badge bg-soft-success text-success">The lounge open for booking</span>
+
+
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+
                                 </div>
 
                             </div>
-                            <div class="text-nowrap">
-                                <span class="badge bg-soft-success text-success">The lounge open for booking</span>
 
-                            </div>
                         </div><!-- end card body -->
                     </div><!-- end card -->
                 </div><!-- end col -->
@@ -53,11 +82,17 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-6">
-                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">Orders</span>
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">New Orders</span>
+                                    <?php 
+                                     $numOrders = $db->table('customers')->where('event_status', 'Approved')->countAllResults();
+
+                                     // Print the number of orders
+                                     ?>
                                     <h4 class="mb-3">
-                                        <span class="counter-value" data-target="8">0</span>
+                                        <span class="counter-value" data-target="<?php echo $numOrders;?>">0</span>
                                     </h4>
                                 </div>
+                                
 
                                 <div class="col-6">
                                     <div id="mini-chart1" data-colors='["#5156be"]' class="apex-charts mb-2"></div>
@@ -81,6 +116,17 @@
                                     <span class="text-muted mb-3 lh-1 d-block text-truncate">Leads</span>
                                     <h4 class="mb-3">
                                         <span class="counter-value" data-target="16">0</span>
+                                    </h4>
+                                </div>
+                                <div class="col-6">
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">New Orders</span>
+                                    <?php 
+                                     $numOrders = $db->table('customers')->where('event_status', 'Approved')->countAllResults();
+
+                                     // Print the number of orders
+                                     ?>
+                                    <h4 class="mb-3">
+                                        <span class="counter-value" data-target="<?php echo $numOrders;?>">0</span>
                                     </h4>
                                 </div>
                                 <div class="col-6">

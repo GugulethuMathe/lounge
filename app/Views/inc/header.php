@@ -13,8 +13,9 @@
         }
         img.pro-img {
     width: 100px;
-    height: auto;
+    height: 306px;
 }
+
     </style>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">

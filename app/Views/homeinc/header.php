@@ -415,7 +415,14 @@
             /* padding: 10px; */
             width: 100px;
         }
-
+        .elementor img {
+    height: 306px !important;
+    max-width: 100%;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
         .input1_inner input {
             display: block;
             width: 100%;

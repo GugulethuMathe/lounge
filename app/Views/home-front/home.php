@@ -11,7 +11,7 @@
                             <header class="header slider-fade">
                                 <div class="owl-carousel owl-theme">
                                     <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-                                    <div class="text-center item bg-img" data-overlay-dark="2" data-background="<?php echo base_url()?>/assets/images/1.jpg">
+                                    <div class="text-center item bg-img" data-overlay-dark="2" data-background="<?php echo base_url() ?>/assets/slides/7.jpeg">
                                         <div class="v-middle caption">
                                             <div class="container">
                                                 <div class="row">
@@ -32,7 +32,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-center item bg-img" data-overlay-dark="2" data-background="https://shtheme.com/demosd/thecappa/wp-content/uploads/2022/04/3-4.jpg">
+                                    <div class="text-center item bg-img" data-overlay-dark="2" data-background="<?php echo base_url() ?>/assets/slides/14.jpeg">
                                         <div class="v-middle caption">
                                             <div class="container">
                                                 <div class="row">
@@ -52,7 +52,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-center item bg-img" data-overlay-dark="2" data-background="https://shtheme.com/demosd/thecappa/wp-content/uploads/2022/04/1-3.jpg">
+                                    <div class="text-center item bg-img" data-overlay-dark="2" data-background="<?php echo base_url() ?>/assets/slides/3.jpeg">
                                         <div class="v-middle caption">
                                             <div class="container">
                                                 <div class="row">
@@ -91,7 +91,7 @@
             </div>
         </div>
     </section>
-    <section class="elementor-section elementor-top-section elementor-element elementor-element-e5531ae elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="e5531ae"  id="about" data-element_type="section">
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-e5531ae elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="e5531ae" id="about" data-element_type="section">
         <div class="elementor-container elementor-column-gap-no">
             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6cabc11" data-id="6cabc11" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -113,17 +113,17 @@
                                             </span>
                                             <div class="section-subtitle">Iziko de Lounge Home of Luxury </div>
                                             <div class="section-title">Enjoy a Luxury Experience</div>
-                                            <p>iZiko-de lounge offers a relaxing bush getaway only 1h30 from Pretoria, 1h45 from Johannesburg and is a mere 50km from Sun city. 
+                                            <p>iZiko-de lounge offers a relaxing bush getaway only 1h30 from Pretoria, 1h45 from Johannesburg and is a mere 50km from Sun city.
 
-If you're looking for a stay close to nature, presented to you as you wish, to unwind, de-stress or simply enjoy a fun filled day , this is the place to be. 
+                                                If you're looking for a stay close to nature, presented to you as you wish, to unwind, de-stress or simply enjoy a fun filled day , this is the place to be.
 
-</p>
+                                            </p>
                                             <p>Our lodging facilities offer a range of bed sizes to accommodate individuals, couples and groups. TVs are available in all the rooms and WiFi to all out guests.
 
-*Restaurant and venue*
-Perfect for individuals looking for an outdoor venue to host functions such as office parties, family reunions, birthday parties and engagement parties. Any occasion will be custom made to suite your needs.
+                                                *Restaurant and venue*
+                                                Perfect for individuals looking for an outdoor venue to host functions such as office parties, family reunions, birthday parties and engagement parties. Any occasion will be custom made to suite your needs.
 
-We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
+                                                We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                             <div class="reservations">
                                                 <div class="icon"><span class="flaticon-call"></span></div>
                                                 <div class="text">
@@ -132,10 +132,10 @@ We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                             </div>
                                         </div>
                                         <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp">
-                                            <img src="wp-content/uploads/2022/06/8.jpg" alt="" class="mt-90 mb-30">
+                                            <img src="assets/slides/5.jpeg" alt="" class="mt-90 mb-30">
                                         </div>
                                         <div class="col col-md-3 animate-box" data-animate-effect="fadeInUp">
-                                            <img src="wp-content/uploads/2022/06/2-1.jpg" alt="">
+                                            <img src="assets/slides/4.jpeg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +227,7 @@ We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
             </div>
         </div>
     </section>
-    <section class="elementor-section elementor-top-section elementor-element elementor-element-8b364e8 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8b364e8"  data-element_type="section">
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-8b364e8 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8b364e8" data-element_type="section">
         <div class="elementor-container elementor-column-gap-no">
             <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-319b36c" data-id="319b36c" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
@@ -255,7 +255,7 @@ We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                             <div class="col-md-3">
                                                 <article class="aa-properties-item">
                                                     <a type="button" data-toggle="modal" data-target="#exampleModal-<?= $pack->id; ?>" class="aa-properties-item-img">
-                                                        <img width="270" height="120" src="<?php echo base_url()?><?php echo $pack->img; ?>" alt="">
+                                                        <img width="270" height="120" src="<?php echo base_url() ?><?php echo $pack->img; ?>" alt="">
                                                     </a>
                                                     <div class="aa-tag for-sale bg-success p-3">
                                                         <h3><span style="color: #fff;"> Package Name:
@@ -311,9 +311,9 @@ We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/1-2.jpg" alt=""> </div> <span class="category"><a href="index-12.htm?room=junior-suite"></a></span>
+                                                <div class="position-re o-hidden"> <img src="assets/slides/8.jpeg" alt=""> </div> <span class="category"><a href="index-12.htm?room=junior-suite"></a></span>
                                                 <div class="con">
-                                                   
+
                                                     <h5>Individuals </h5>
                                                     <div class="line"></div>
                                                     <div class="row facilities">
@@ -335,9 +335,9 @@ We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                         </div>
                                         <div class="col-md-4">
                                             <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/2-3.jpg" alt=""> </div> <span class="category"><a href="index-24.htm?room=family-room"></a></span>
+                                                <div class="position-re o-hidden"> <img src="assets/slides/13.jpeg" alt=""> </div> <span class="category"><a href="index-24.htm?room=family-room"></a></span>
                                                 <div class="con">
-                                                    
+
                                                     <h5>Family Room</h5>
                                                     <div class="line"></div>
                                                     <div class="row facilities">
@@ -357,7 +357,7 @@ We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                         </div>
                                         <div class="col-md-4">
                                             <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/3-3.jpg" alt=""> </div> <span class="category"><a href="<?php echo base_url(); ?>"></a></span>
+                                                <div class="position-re o-hidden"> <img src="assets/slides/10.jpeg" alt=""> </div> <span class="category"><a href="<?php echo base_url(); ?>"></a></span>
                                                 <div class="con">
                                                     <h5>Couples</h5>
                                                     <div class="line"></div>
@@ -378,9 +378,9 @@ We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                         </div>
                                         <div class="col-md-6">
                                             <div class="item">
-                                                <div class="position-re o-hidden"> <img src="wp-content/uploads/2022/04/4.jpg" alt=""> </div> <span class="category"><a href="index-26.htm?room=deluxe-room"></a></span>
+                                                <div class="position-re o-hidden"> <img src="assets/slides/12.jpeg" alt=""> </div> <span class="category"><a href="index-26.htm?room=deluxe-room"></a></span>
                                                 <div class="con">
-                                                    
+
                                                     <h5>Groups</h5>
                                                     <div class="line"></div>
                                                     <div class="row facilities">
@@ -400,7 +400,7 @@ We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                                 </div>
                                             </div>
                                         </div>
-                                     
+
                                     </div>
                                 </div>
                             </section>
@@ -427,7 +427,7 @@ We offer hours of fun, great food and an amazing atmosphere.</p> <!-- call -->
                                             <div class="section-subtitle"><span>Best Prices</span></div>
                                             <div class="section-title"><span>Extra Services</span></div>
                                             <p class="color-2">You can choose products such as drinks and food, services like Djs, Cameramen and many more before you come to the lounge .In addition to our tantalizing desserts, our menu honors the finest local products,
-obtained from our community's most reputable farmers and craftsmen.</p>
+                                                obtained from our community's most reputable farmers and craftsmen.</p>
                                             <div class="reservations mb-30">
                                                 <div class="icon"><span class="flaticon-call"></span></div>
                                                 <div class="text">
@@ -452,7 +452,7 @@ obtained from our community's most reputable farmers and craftsmen.</p>
                                                     </div>
                                                 </div>
                                                 <div class="pricing-card">
-                                                    <img height="236" style="height: 236px;" src="assets/images/8.jpg" alt="">
+                                                    <img height="236" style="height: 236px;" src="assets/slides/15.jpg" alt="">
                                                     <div class="desc">
                                                         <div class="name">Services</div>
                                                         <div class="amount"></span></div>
@@ -465,7 +465,7 @@ obtained from our community's most reputable farmers and craftsmen.</p>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
                                     </div>
@@ -488,7 +488,7 @@ obtained from our community's most reputable farmers and craftsmen.</p>
                         <div class="elementor-widget-container">
 
                             <section class="testimonials">
-                                <div class="background bg-img bg-fixed section-padding pb-0" data-background="https://shtheme.com/demosd/thecappa/wp-content/uploads/2022/06/2.jpg" data-overlay-dark="3">
+                                <div class="background bg-img bg-fixed section-padding pb-0" data-background="assets/slides/7.jpeg" data-overlay-dark="3">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-8 offset-md-2">
@@ -500,10 +500,10 @@ obtained from our community's most reputable farmers and craftsmen.</p>
                                                     </div>
                                                     <div class="owl-carousel owl-theme">
                                                         <div class="item">
-                                                            <span class="quote"><img src="wp-content/uploads/2022/06/quot.png" alt=""></span>
+                                                            <span class="quote"><img src="wp-content/uploads/2022/06/quort.png" alt=""></span>
                                                             <p>Sometimes l need to get out of the city from all the noise and busyness, Iziko de Lounge is my go to place to recharge. l highly recommend it.</p>
                                                             <div class="info">
-                                                                <div class="author-img"> <img src="wp-content/uploads/2022/06/4-1.jpg" alt=""> </div>
+                                                                <div class="author-img"> <img src="assets/slides/7.jpeag" alt=""> </div>
                                                                 <div class="cont">
                                                                     <span>
                                                                         <i class="star-rating"></i>
@@ -512,12 +512,12 @@ obtained from our community's most reputable farmers and craftsmen.</p>
                                                                         <i class="star-rating"></i>
                                                                         <i class="star-rating"></i>
                                                                     </span>
-                                                                    <h6>Emily Brown</h6>
+                                                                    <h6>Emily Mabaso</h6>
                                                                     <span>Guest review</span>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                      
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -639,7 +639,26 @@ Message *</textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mapouter"><div class="gmap_canvas"><iframe width="1080" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%20Kraalhoek%20Farm%20269%20JQ,%20Rustenburg,%20North%20West,%20South%20Africa&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:1080px;}</style><a href="https://www.embedgooglemap.net">how to add map to website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:1080px;}</style></div></div>
+                                    <div class="mapouter">
+                                        <div class="gmap_canvas"><iframe width="1080" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Kgetlengrivier%20Local%20Municipality&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org">123movies</a><br>
+                                            <style>
+                                                .mapouter {
+                                                    position: relative;
+                                                    text-align: right;
+                                                    height: 500px;
+                                                    width: 1080px;
+                                                }
+                                            </style><a href="https://www.embedgooglemap.net">custom google map generator</a>
+                                            <style>
+                                                .gmap_canvas {
+                                                    overflow: hidden;
+                                                    background: none !important;
+                                                    height: 500px;
+                                                    width: 1080px;
+                                                }
+                                            </style>
+                                        </div>
+                                    </div>
                                 </div>
                             </section>
                         </div>
